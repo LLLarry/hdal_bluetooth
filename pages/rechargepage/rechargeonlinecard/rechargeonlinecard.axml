@@ -1,0 +1,30 @@
+<view>
+  <!-- <view class="padding-x-3 text-size-default text-center">设备编号：000065</view> -->
+  <!-- 充值卡信息 -->
+  <view class="recharge-info padding-3 margin-x-3 d-flex flex-wrap margin-bottom-2">
+    <view class=" text-size-md recharge-info-item"><text>卡号: </text><text>0BAA4F31</text></view>
+    <view class=" text-size-md recharge-info-item"><text>持卡人: </text><text>测试名称</text></view>
+    <view class=" text-size-md recharge-info-item"><text>电话: </text><text>15538065635</text></view>
+    <view class=" text-size-md recharge-info-item"><text>所属小区: </text><text>测试小区</text></view>
+    <view class=" text-size-md recharge-info-item"><text>充值余额: </text><text>12.36元</text></view>
+    <view class=" text-size-md recharge-info-item"><text>赠送余额: </text><text>5.0元</text></view>
+    <view class=" text-size-md recharge-info-item"><text>状态: </text><text>正常</text></view>
+  </view>
+  <devide height="30" /> 
+  <!-- 充值模板 -->
+  <view class="padding-x-3 margin-top-2 text-size-default">请选择充值金额</view>
+  <select-tem temList="{{temList}}" defaultIndex="{{defaultIndex}}" />
+  <devide height="30" />
+  <view class="d-flex padding-y-2 text-size-default align-items-center">
+    <view class="flex-1 text-right">支付金额:</view>
+    <view class="flex-1 text-left"> <text class="font-weight-bold text-primary margin-left-1 recharge-money"> {{ temList[defaultIndex] ? temList[defaultIndex].money.toFixed(2) : '未选择' }}</text>元</view>
+  </view>
+  <view class="padding-x-3 padding-bottom-2">
+    <button type="primary" onTap="handleSubmit" class="text-size-default">立即充值</button>
+  </view>
+  <!-- 联系电话 -->
+  <devide height="30" />
+    <view class="padding-3">
+    <charge-phone phone="15538065635" />
+  </view>
+</view>

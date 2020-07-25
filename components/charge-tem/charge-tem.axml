@@ -1,0 +1,16 @@
+<view>
+  <view class="contral-tem">
+    <view class="contral-wrapper d-flex flex-wrap">
+      <view 
+        class="item d-flex justify-content-center align-items-center text-size-md {{ defaultIndex === index ? 'active' : '' }}" 
+        a:for="{{templatelist}}" 
+        a:key="{{item.key}}" 
+        data-index="{{index}}"
+        onTap="handleSelectTem"
+      >{{item.name}}</view>
+      <!-- <view class="item d-flex justify-content-center align-items-center text-size-md">1元</view>
+      <view class="item d-flex justify-content-center align-items-center text-size-md">1元</view>
+      <view class="item d-flex justify-content-center align-items-center text-size-md">1元</view> -->
+    </view>
+  </view>
+</view>

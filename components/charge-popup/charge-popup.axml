@@ -1,0 +1,22 @@
+  <!-- 点击端口弹出层 -->
+  <popup 
+    show="{{paytypeShow}}" 
+    position="bottom" 
+    onClose="onPopupClose" 
+    className="select-popup {{ from === 2 ? 'hide-mask' : '' }}" 
+    a:if="{{ typeof paytypeShow === 'boolean' }}"
+  >
+    <slot></slot> 
+  </popup>
+
+
+<!-- 点击收费说明 -->
+<popup 
+  show="{{chargeInfoShow}}" 
+  position="bottom" 
+  onClose="handleCloseChargeInfo" 
+  className="select-chargeinfo {{ from === 2 ? 'hide-mask' : '' }}" 
+  a:if="{{ typeof chargeInfoShow === 'boolean' }}"
+>
+  <slot></slot>   
+</popup>

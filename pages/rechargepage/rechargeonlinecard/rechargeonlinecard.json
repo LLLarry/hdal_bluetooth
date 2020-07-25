@@ -1,0 +1,9 @@
+{
+  "defaultTitle": "在线卡卡充值",
+  "usingComponents":{
+    "select-tem": "/components/select-tem/select-tem",
+    "devide": "/components/devide/devide",
+    "charge-phone": "/components/charge-phone/charge-phone",
+    "charge-footer": "/components/charge-footer/charge-footer"
+  }
+}

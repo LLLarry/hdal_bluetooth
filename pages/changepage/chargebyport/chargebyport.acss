@@ -1,0 +1,6 @@
+page {
+  background-color: #fff;
+}
+.contral {
+  box-shadow: -4rpx -4rpx 15rpx #ddd;
+}

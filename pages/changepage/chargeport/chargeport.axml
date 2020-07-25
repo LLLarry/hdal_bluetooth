@@ -1,0 +1,54 @@
+<view>
+ <!-- 顶部header部分 -->
+  <charge-header code="{{code}}" equname="{{result.equname}}"  phonenum="{{result.phonenum}}"  />
+  <!-- 中间main部分 -->
+  <view class="main padding-3">
+    <!-- 展示端口号 -->
+    <charge-port portList="{{result.portList}}" selectPort="{{selectPort}}" />
+  </view>
+  <!-- <navigator open-type="exit" target="miniProgram">Navigate</navigator> -->
+  <!-- 底部  -->
+  <charge-footer templatelist="{{result.templatelist}}" defaultIndex="{{defaultIndex}}" />
+
+  <!-- 点击端口弹出层 -->
+  <!-- <popup show="{{paytypeShow}}" position="bottom" onClose="onPopupClose" className="select-popup"> -->
+    <!-- <view class="contral bg-white padding-x-3 padding-top-3"> -->
+    <!-- 顶部标题 -->
+      <!-- <view class="contral-title d-flex justify-content-between margin-bottom-3">
+        <text>请选择充电金额</text>
+        <text class="text-size-md text-666">已选择充电插座： <text class="text-size-default text-primary">{{selectPort}}</text>号</text>
+      </view> -->
+      <!--充电模板选择 -->
+      <!-- <charge-tem templatelist="{{result.templatelist}}" defaultIndex="{{defaultIndex}}" /> -->
+      
+     <!-- 支付方式 -->
+     <!-- <charge-paytype ifwallet="{{result.ifwallet}}" paytype="{{paytype}}" /> -->
+     <!-- 温馨提示 -->
+      <!-- <charge-tip /> -->
+    <!-- </view> -->
+  <!-- </popup> -->
+    <!-- 充电信息 --> 
+  <!-- <popup show="{{chargeInfoShow}}" position="bottom" onClose="handleCloseChargeInfo" className="select-chargeinfo">
+    <charge-info code="{{result.code}}" quname="{{result.equname}}" chargeInfo="{{result.chargeInfo}}" />
+  </popup> -->
+  <charge-popup paytypeShow="{{paytypeShow}}" >
+    <view class="contral bg-white padding-x-3 padding-top-3">
+    <!-- 顶部标题 -->
+      <view class="contral-title d-flex justify-content-between margin-bottom-3">
+        <text>请选择充电金额</text>
+        <text class="text-size-md text-666">已选择充电插座： <text class="text-size-default text-primary">{{selectPort}}</text>号</text>
+      </view>
+      <!--充电模板选择 -->
+      <charge-tem templatelist="{{result.templatelist}}" defaultIndex="{{defaultIndex}}" />
+      
+     <!-- 支付方式 -->
+      <charge-paytype ifwallet="{{result.ifwallet}}" paytype="{{paytype}}" />
+     <!-- 温馨提示 -->
+      <charge-tip />
+      <!-- </view> -->
+    </view>
+  </charge-popup>
+  <charge-popup chargeInfoShow="{{chargeInfoShow}}" >
+    <charge-info code="{{code}}" areaname="{{result.areaname}}" chargeInfo="{{result.chargeInfo}}" />
+  </charge-popup>
+</view>

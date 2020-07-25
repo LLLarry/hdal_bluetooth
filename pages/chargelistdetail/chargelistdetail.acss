@@ -1,0 +1,9 @@
+.goHome {
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 20rpx 40rpx;
+}
+.goHome button {
+  border-radius: 94rpx;
+}

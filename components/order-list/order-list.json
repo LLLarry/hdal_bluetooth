@@ -1,0 +1,6 @@
+{
+  "component": true,
+  "usingComponents": {
+    "page-result": "mini-ali-ui-rpx/es/page-result/index"
+  }
+}

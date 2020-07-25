@@ -1,0 +1,29 @@
+<view>
+  <!-- <view class="title">正在努力加载中···</view> -->
+  <view class='base' a:if="{{!isClodeMiniPro}}">
+    <view class='cube'></view>
+    <view class='cube'></view>
+    <view class='cube'></view>
+    <view class='cube'></view>
+    <view class='cube'></view>
+    <view class='cube'></view>
+    <view class='cube'></view>
+    <view class='cube'></view>
+    <view class='cube'></view>
+  </view>
+  
+  <page-result
+    a:else
+    type="error"
+    local="{{true}}"
+    title="请求出错"
+    brief="请求数据异常、请稍后再试"
+    onTapLeft="onTapLeft"
+    onTapRight="onTapRight"
+  />
+
+  <!-- 关闭小程序提示框 -->
+  <close-minipro ref="getCloseMiniPro">
+    请求异常
+  </close-minipro>
+</view>

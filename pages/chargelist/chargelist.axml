@@ -1,0 +1,32 @@
+<view class="charge-list">
+  <!-- <view 
+    class="card-list rounded bg-white padding-3 margin-x-2 margin-y-2 "  
+    onTap="handleGoDetail"
+    a:for="{{list}}"
+    a:key="{{item.id}}"
+    data-detail="{{item}}"
+    >
+      <view class="top d-flex justify-content-between">
+        <text class="text-bold">{{item.time}}</text>
+        <view class="text-999 text-size-md">{{item.status == 1 ? '已完成' : '已退费'}}</view>
+      </view>
+      <view class="info margin-top-1">
+          <view class="info-item d-flex align-items-center ">
+            <view class="info-icon text-size-sm  text-999 iconfont icon-ico_home_committed"></view>
+             <text class="info-text text-666 text-size-md margin-left-2">充电时长 {{item.chargetime}}</text>
+          </view>
+
+          <view class="info-item d-flex align-items-center">
+            <view class="info-icon text-size-sm  text-999 iconfont icon-zhifufangshi"></view>
+             <text class="info-text text-666 text-size-md margin-left-2">消费 {{item.money}}元</text>
+          </view>
+      </view>
+  </view> -->
+  <import-sjs from="/filter-sjs/format/index.sjs" name="{format}"></import-sjs>
+  <order-list list="{{list}}" />
+
+  {{ format('2020-07-23T07:42:53.000+0000') }}
+  {{ format('2020-07-24') }}
+  {{ format(12456468487,1) }}
+  {{ format('Fri Jul 24 2020 09:44:47 GMT+0800 (中国标准时间)') }}
+</view>

@@ -1,0 +1,18 @@
+<view>
+  <!-- 编号充电 -->
+    <view class="margin-x-2 padding-y-4">
+      <view class="margin-bottom-2 ">请输入设备编号进行充电</view>
+      <view class="form w-100 margin-bottom-4">
+          <input class="input d-block padding-x-3" type="number" placeholder="请输入设备编号" value="{{inputVal}}" onInput="changeInput" />
+      </view>
+       <view class="margin-bottom-2 ">常用电站</view>
+       <view class="form w-100 margin-bottom-4">
+          <list>
+             <list-item arrow="true"  onClick="onItemClick" data-code="000001"> 0000001 </list-item>
+             <list-item arrow="true"  onClick="onItemClick" data-code="000002"> 0000002 </list-item>
+             <list-item arrow="true"  onClick="onItemClick" data-code="000017"> 0000017 </list-item>
+          </list>
+      </view>
+      <button type="{{check ? 'primary' : 'default'}}" disabled="{{!check}}" onTap="handleCharge">开始充电</button>
+    </view>
+</view>

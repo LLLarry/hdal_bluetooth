@@ -1,0 +1,16 @@
+/* 底部 */
+.footer {
+  left: 0;
+  height: 160rpx;
+  bottom: 0;
+  right:0;
+  box-shadow: -4rpx -4rpx 15rpx #ddd;
+  z-index: 9;
+}
+.footer .submit-btn {
+  width: 264rpx;
+  height: 100%;
+}
+.footer .info {
+  font-size: 32rpx;
+}

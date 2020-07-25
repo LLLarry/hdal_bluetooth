@@ -1,0 +1,49 @@
+{
+  "pages": [
+    "pages/my/my",
+    "pages/index/index",
+    "pages/wallet/wallet",
+    "pages/chargelist/chargelist",
+    "pages/chargelistdetail/chargelistdetail",
+    "pages/wantcharge/wantcharge",
+    "pages/wantcharge/pages/numtocharge/numtocharge",
+    "pages/nowCharge/nowCharge",
+    "pages/changepage/chargeport/chargeport",
+    "pages/changepage/chargebyport/chargebyport",
+    "pages/loading/loading",
+    "pages/changepage/chargeicon/chargeicon",
+    "pages/rechargepage/rechargeoffline/rechargeoffline",
+    "pages/rechargepage/rechargeonlinecard/rechargeonlinecard",
+    "pages/changepage/chargeerror/chargeerror"
+  ],
+  "window": {
+    "defaultTitle": "My App",
+    "pullRefresh": false,
+    "allowsBounceVertical": "NO"
+  },
+  "tabBar": {
+    "textColor": "#A2A3A5",
+    "selectedColor": "#108EE9",
+    "backgroundColor": "#ffffff",
+    "items": [
+      {
+        "pagePath": "pages/wantcharge/wantcharge",
+        "name": "我要充电",
+        "icon": "assets/tabBar/home.png",
+        "activeIcon": "assets/tabBar/home-active.png"
+      },
+      {
+        "pagePath": "pages/nowCharge/nowCharge",
+        "name": "正在充电",
+        "icon": "assets/tabBar/wallet.png",
+        "activeIcon": "assets/tabBar/wallet-active.png"
+      },
+      {
+        "pagePath": "pages/my/my",
+        "name": "我的",
+        "icon": "assets/tabBar/my.png",
+        "activeIcon": "assets/tabBar/my-active.png"
+      }
+    ]
+  }
+}

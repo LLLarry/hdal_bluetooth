@@ -1,0 +1,39 @@
+<view>
+ <!-- 顶部header部分 -->
+  <charge-header code="{{result.code+'-'+selectPort}}" equname="{{result.equname}}"  phonenum="{{result.phonenum}}"  />
+
+  <!-- 中间main部分 -->
+  <view class="main padding-3">
+    <!-- 展示端口号 -->
+  </view>
+
+  <!-- 底部  -->
+  <charge-footer templatelist="{{result.templatelist}}" defaultIndex="{{defaultIndex}}" />
+
+
+  <!-- 点击端口弹出层 -->
+  <!-- <popup show="{{paytypeShow}}" position="bottom" onClose="onPopupClose" className="select-popup">
+  </popup> -->
+  <charge-popup paytypeShow="{{paytypeShow}}" from="{{2}}" >
+    <view class="contral bg-white padding-x-3 padding-top-3 ">
+    <!-- 顶部标题 -->
+      <view class="contral-title d-flex justify-content-between margin-bottom-3">
+        <text>请选择充电金额</text>
+        <text class="text-size-md text-666">已选择充电插座： <text class="text-size-default text-primary">{{selectPort}}</text>号</text>
+      </view>
+      <!--充电模板选择 -->
+      <charge-tem templatelist="{{result.templatelist}}" defaultIndex="{{defaultIndex}}" />
+      
+     <!-- 支付方式 -->
+      <charge-paytype ifwallet="{{result.ifwallet}}" paytype="{{paytype}}" />
+     <!-- 温馨提示 -->
+      <charge-tip />
+    </view>
+  </charge-popup>
+
+
+  <!-- 充电信息界面 from === 2 来自端口充电 -->
+  <charge-popup chargeInfoShow="{{chargeInfoShow}}" from="{{2}}" >
+    <charge-info code="{{result.code}}" areaname="{{result.areaname}}" chargeInfo="{{result.chargeInfo}}" />
+  </charge-popup>
+</view>

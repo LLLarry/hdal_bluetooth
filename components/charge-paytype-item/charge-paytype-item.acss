@@ -1,0 +1,11 @@
+.paytype .iconfont {
+  font-size: 40rpx;
+}
+
+.paytype .icon-big-Pay {
+  color: rgba(16,142,233);
+}
+
+.paytype .icon-qianbao {
+  color: #D7BA5E;
+}

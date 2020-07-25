@@ -1,0 +1,5 @@
+@import "/static/larry-bootstrap.acss";
+@import "/static/iconfont/iconfont.acss";
+page {
+  background: #f7f7f7;
+}

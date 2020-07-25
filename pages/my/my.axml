@@ -1,0 +1,98 @@
+
+<view class="my">
+  <view class="header">
+      <flex class="userInfo">
+        <avatar class="avatar" size="lg" src="{{userInfo.avatar}}"/>
+        <!-- <flex direction="column" class="detail" align="start">
+          <view class="user">艾文先森</view>
+          <view class="phone">15538065635</view>
+        </flex> -->
+        <flex direction="column" class="detail" align="start">
+          <view class="user">{{ userInfo.nickName ? userInfo.nickName : '暂无用户信息'}}</view>
+          <!-- <view class="phone" a:if="{{ userInfo.nickName }}">15538065635</view> -->
+          <!-- <button 
+            a:else
+            class="get-userinfo-btn" 
+            type="default" 
+            scope='userInfo'
+            open-type="getAuthorize" 
+            onGetAuthorize="onGetAuthorize"
+            onError="onAuthError"
+          >完善个人信息</button> -->
+        </flex> 
+        <flex class="contral" a:if="{{ !userInfo.nickName }}">
+          <button 
+            class="get-userinfo-btn"  
+            type="default" 
+            type="default" 
+            scope='userInfo'
+            open-type="getAuthorize" 
+            onGetAuthorize="onGetAuthorize"
+            onError="onAuthError"
+          >完善个人信息</button>
+        </flex>
+      </flex>
+      <view class="walletBanance d-flex padding-y-3">
+          <view class="w-50 d-flex flex-column justify-content-between align-items-center text-size-md addBorder" >
+            <view class="margin-bottom-3">充值余额</view>
+            <view class="b-money text-primary text-bold">30.65</view>
+          </view>
+          <view class="w-50 d-flex flex-column justify-content-between align-items-center text-size-md">
+            <view class="margin-bottom-3">赠送余额</view>
+            <view class="b-money text-primary text-bold">30.65</view>
+          </view>
+      </view>
+  </view>  
+  <devide height="130" />
+  <!-- 导航栏 -->
+   <view class="nva d-flex bg-white">
+      <view class="w-25 d-flex flex-column justify-content-between align-items-center padding-y-3">
+        <view class="icon margin-bottom-2 iconfont icon-gerenzhongxin"></view>
+        <view class="text">个人中心</view>
+      </view>
+       <view class="w-25 d-flex flex-column justify-content-between align-items-center padding-y-3">
+        <view class="icon margin-bottom-2 iconfont icon-qianbao1"></view>
+        <view class="text">钱包充值</view>
+      </view>
+       <view class="w-25 d-flex flex-column justify-content-between align-items-center padding-y-3">
+        <view class="icon margin-bottom-2 iconfont icon-qiabao"></view>
+        <view class="text">IC卡操作</view>
+      </view>
+       <view class="w-25 d-flex flex-column justify-content-between align-items-center padding-y-3">
+        <view class="icon margin-bottom-2 iconfont icon-peizhitubiaosvg-"></view>
+        <view class="text">包月信息</view>
+      </view>
+    </view>
+
+  <devide height="30" />
+  <list>
+      <list-item thumb="assets/images/jiaoyi.png"
+        arrow="{{true}}"
+        onClick="onItemClick">
+         交易记录
+      </list-item>
+      <list-item thumb="assets/images/chongdian.png"
+        arrow="{{true}}"
+        onClick="handleGoChargeList">
+         充电记录
+      </list-item>
+      <list-item thumb="assets/images/xiaoqu.png"
+        onClick="onItemClick">
+         所属小区
+          <view slot="afterTitle">
+            <text class="second-title">测试小区</text>
+          </view>
+      </list-item>
+      <list-item thumb="assets/images/shanghu.png"
+        onClick="onItemClick">
+         所属商户
+         <view slot="afterTitle">
+            <text class="second-title">测试商户</text>
+          </view>
+      </list-item>
+  </list>
+
+
+
+
+</view>

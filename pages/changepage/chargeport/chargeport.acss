@@ -1,0 +1,22 @@
+page {
+  background-color: #fff;
+}
+/* .select-popup .am-popup-mask{
+  z-index: 99;
+} */
+/* 
+.select-popup .contral {
+  padding-bottom: 190rpx;
+}
+.select-popup .am-popup-mask ,
+.select-chargeinfo .am-popup-mask{
+  background-color: rgba(0,0,0,.3);
+}
+
+.select-chargeinfo {
+  position: fixed;
+  z-index: 10;
+} */
+
+
+

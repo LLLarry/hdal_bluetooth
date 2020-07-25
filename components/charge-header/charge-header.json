@@ -1,0 +1,8 @@
+{
+  "component": true,
+  "usingComponents": {
+    "flex": "mini-ali-ui-rpx/es/flex/index",
+    "flex-item": "mini-ali-ui-rpx/es/flex/flex-item/index",
+    "charge-phone": "/components/charge-phone/charge-phone"
+  }
+}

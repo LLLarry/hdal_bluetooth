@@ -1,0 +1,15 @@
+
+.pay-money{
+  font-size: 70rpx;
+}
+.pay-money:first-letter {
+    font-size: 32rpx;
+    margin-right: 5rpx;
+}
+.tip-info {
+  line-height: 1.8;
+}
+.top-bottom {
+  border-top: 1rpx dashed  #fff;
+}
+

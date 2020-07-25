@@ -1,0 +1,7 @@
+<view class="footer d-flex bg-white position-fixed">
+  <view class="flex-1 d-flex align-items-center padding-left-3 info">
+    <text>充电时长：</text>
+    <text>{{templatelist[defaultIndex] ? templatelist[defaultIndex].money.toFixed(2) : '0.00'}}元</text>
+  </view>
+  <button type="primary" class="submit-btn d-flex align-items-center justify-content-center" onTap="handleSubmit">开始充电</button>
+</view>

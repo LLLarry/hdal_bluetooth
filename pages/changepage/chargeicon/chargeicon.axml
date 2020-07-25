@@ -1,0 +1,23 @@
+<view>
+  <view class="padding-left-3 padding-top-3">
+    <view class="padding-bottom-2  text-size-lg">请选择投币个数</view>
+  </view>
+   <devide height="30"/>
+
+
+    <select-tem temList="{{temList}}" defaultIndex="{{defaultIndex}}" />
+  <devide height="30"/>
+  <view class="padding-left-3 padding-bottom-3">
+    <view class="padding-top-3 text-size-lg">请选择支付方式</view>
+    <view class="padding-y-3">
+      <charge-paytype paytype="{{paytype}}" />
+    </view>
+  </view>
+  <view class="padding-3">
+    <button type="primary" onTap="handleSubmit" class="text-size-default">开始充电</button>
+  </view>
+  <view class="padding-3">
+    <charge-phone phone="{{'15538065635'}}"/>
+  </view>
+  
+</view>

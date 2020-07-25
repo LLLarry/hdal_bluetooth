@@ -1,0 +1,5 @@
+ <view class="wallet-pay padding-x-3 padding-y-2 d-flex position-relative">
+  <view class="title text-primary">温馨提示</view>
+  <view class="flex-1 d-flex align-items-center text-999 text-size-md margin-left-2" >钱包充值更方便</view>
+  <view class="position-absolute wallet-pay-btn text-primary text-size-md">充值</view>
+</view>

@@ -1,0 +1,6 @@
+{
+  "defaultTitle": "充电记录",
+  "usingComponents": {
+    "order-list": "/components/order-list/order-list"
+  }
+}

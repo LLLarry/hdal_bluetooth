@@ -1,0 +1,36 @@
+<!-- 充电头部部分 -->
+<view class="header padding-3 bg-white">
+      <flex class="margin-bottom-2">
+          <flex-item>
+            <view class="d-flex ">
+              <view class="text-primary margin-right-1 iconfont icon-diannao"></view>
+              <view class="flex-1 text-truncate">{{code}}</view>
+            </view>
+          </flex-item>
+          <flex-item>
+            <view class="d-flex text-truncate justify-content-end" a:if="{{equname}}">
+              <view class="text-primary margin-right-1 iconfont icon-fangwu"></view>
+              <view class="text-truncate">{{equname}}</view>
+            </view>
+          </flex-item>
+      </flex>
+      <flex class="margin-bottom-2">
+        <flex-item>
+            <view class="d-flex text-truncate" onTap="handleOpenChargeInfo">
+              <view class="text-primary margin-right-1 iconfont icon-tishishuoming"></view>
+              <view class="text-primary">收费说明</view>
+              <view class="text-primary margin-left-1 iconfont icon-xiangyou"></view>
+            </view>
+          </flex-item>
+      </flex>
+      <flex a:if={{ phonenum.length > 0 }}>
+        <flex-item>
+            <view class="d-flex text-truncate">
+              <view class="text-primary margin-right-1 iconfont icon-dianhua"></view>
+              <!-- <view class="">如有疑问，请联系：</view>
+              <view class="text-primary margin-left-1" onTap="handleCall">{{phonenum}}</view> -->
+              <charge-phone phone="{{ phonenum }}" />
+            </view>
+          </flex-item>
+      </flex>
+  </view>

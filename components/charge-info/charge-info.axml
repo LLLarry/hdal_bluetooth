@@ -1,0 +1,15 @@
+<view class="contral bg-white padding-3 ">
+    <view class="text-size-lg margin-bottom-2 text-666" a:if="{{areaname}}">{{areaname}}</view>
+    <view class="text-666">设备编号：{{code}}</view>
+    <view class="text-bold margin-top-4 text-size-lg">收费说明</view>
+    <view class="padding-y-2" a:if="{{!chargeInfo}}">
+      <view class="text-333 text-size-md margin-y-1">选择的充电时间为小功率充电时间，仅供参考。</view>
+      <view class="text-333 text-size-md margin-y-1">大功率电动车充电时间智能动态计算，以实际为准。</view>
+    </view>
+    <view class="padding-y-2" a:else >
+      <view class="text-333 text-size-md margin-y-1" a:for="{{chargeInfoList}}" a:key="{{index}}">{{item}}</view>
+    </view>
+    <view class="margin-bottom-2">
+      <button type="primary" class="iKnow" onTap="handleCloseChargeInfo">我知道了</button>
+    </view>
+</view>

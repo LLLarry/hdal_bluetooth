@@ -1,0 +1,17 @@
+.select-popup .contral {
+  padding-bottom: 190rpx;
+}
+.select-popup .am-popup-mask ,
+.select-chargeinfo .am-popup-mask{
+  background-color: rgba(0,0,0,.3);
+}
+
+.select-chargeinfo {
+  position: fixed;
+  z-index: 10;
+}
+
+/* 隐藏遮罩层 */
+.hide-mask .am-popup-mask {
+  position: static;
+}

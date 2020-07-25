@@ -1,0 +1,17 @@
+.contral-wrapper .item{
+  width: 30%;
+  height: 80rpx;
+  border: 1rpx solid #ccc;
+  margin-right: 5%;
+  box-sizing: border-box;
+  margin-bottom: 3%;
+  border-radius: 6rpx;
+  transition: .3s;
+}
+.contral-wrapper .item.active {
+  background-color: rgba(16,142,233);
+  color: #FFFFFF;
+}
+.contral-wrapper .item:nth-child(3n){
+  margin-right: 0;
+}

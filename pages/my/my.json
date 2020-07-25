@@ -1,0 +1,10 @@
+{
+  "usingComponents": {
+   "flex": "mini-ali-ui-rpx/es/flex/index",
+    "avatar": "mini-ali-ui-rpx/es/avatar/index",
+    "list": "mini-ali-ui-rpx/es/list/index",
+    "list-item": "mini-ali-ui-rpx/es/list/list-item/index",
+    "devide": "/components/devide/devide"
+  },
+  "defaultTitle": "我的"
+}

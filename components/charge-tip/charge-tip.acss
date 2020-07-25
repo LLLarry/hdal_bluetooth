@@ -1,0 +1,16 @@
+.wallet-pay {
+  background-color: #f0f0f0;
+  border-radius: 8rpx;
+}
+.wallet-pay .title {
+  width: 80rpx;
+}
+.wallet-pay-btn {
+  right: 30rpx;
+  top: 50%;
+  transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
+  border: 1rpx solid rgba(16,142,233);
+  padding: 8rpx 20rpx;
+  border-radius: 5rpx;
+}

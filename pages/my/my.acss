@@ -1,0 +1,61 @@
+/* required by usingComponents */
+
+.userInfo {
+  /* background-color: #fff; */
+  padding: 30rpx;
+}
+.detail {
+  margin-left: 30rpx;
+  height: 100%;
+  flex: 1;
+}
+.user {
+  font-size: 34rpx;
+  padding-bottom: 10rpx;
+  font-weight: bold;
+}
+.phone {
+  font-size: 28rpx;
+  padding-top: 10rpx;
+  color: #999;
+}
+
+.get-userinfo-btn {
+  height: auto;
+  font-size: 24rpx;
+  line-height: 1.4;
+  padding: 5rpx 24rpx;
+  border-radius: 22rpx;
+  color: #999;
+  background-color: #eee;
+}
+.second-title {
+  color: #666;
+  font-size: 28rpx;
+}
+
+.header {
+  position: relative;
+  padding-bottom: 60rpx;
+  background-color: #fff;
+}
+.walletBanance {
+  width: 90%;
+  background-color: rgba(192, 192, 192);
+  border-radius: 15rpx;
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translate(-50%,100rpx);
+}
+.b-money {
+  font-size: 38rpx;
+}
+.addBorder {
+  border-right: 1rpx solid rgba(16, 142, 233,.9);
+}
+
+.nva .icon {
+  font-size: 46rpx;
+  color: #B4C3C6;
+}

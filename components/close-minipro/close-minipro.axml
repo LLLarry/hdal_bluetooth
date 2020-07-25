@@ -1,0 +1,8 @@
+<modal
+  show="{{ isshow }}"
+  className="close-miniProgram"
+>
+  <view slot="header">提示</view>
+  <slot></slot>
+  <view slot="footer"><navigator open-type="exit" target="miniProgram">我知道了</navigator></view>
+</modal>

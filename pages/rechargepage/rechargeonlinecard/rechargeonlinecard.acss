@@ -1,0 +1,21 @@
+page {
+  background-color: #fff;
+}
+.recharge-info {
+  background-image: linear-gradient(to right bottom, rgb(16, 142, 233) , rgb(16, 142, 233,.3));
+  border-radius: 10rpx;
+}
+.recharge-info-item{
+  min-width: 50%;
+  padding: 10rpx 0;
+}
+.recharge-info-item text:first-child {
+  color: #ededed;
+}
+.recharge-info-item text:last-child {
+  color: #fff;
+  margin-left: 10rpx;
+}
+.recharge-money {
+  font-size: 45rpx;
+}

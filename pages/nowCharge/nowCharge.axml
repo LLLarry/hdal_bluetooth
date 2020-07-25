@@ -1,0 +1,15 @@
+<view>
+  <view class="margin-x-3 padding-y-3">正在充电</view>
+  <order-detail shadow="{{true}}" result="{{result}}">
+    <!-- <text slot="after">999999999999</text> -->
+    <view class="contral d-flex justify-content-between margin-top-1" slot="contral">
+      <button type="primary" class="text-size-sm w-25">更新</button>
+      <button type="default" class="text-size-sm w-25">续充</button>
+      <button type="warn" class="text-size-sm w-25">断电</button>
+    </view>
+  </order-detail>
+  <view class="margin-x-3 padding-y-3">历史充电记录</view>
+  <view>
+    <order-list list="{{[]}}" />
+  </view>
+</view>

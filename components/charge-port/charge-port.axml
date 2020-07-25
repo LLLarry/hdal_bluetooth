@@ -1,0 +1,33 @@
+<view>
+  <!-- 端口部分 -->
+    <view class="main-title d-flex justify-content-between margin-bottom-3" a:if="{{portList.length>0}}">
+      <view class="text-size-default">请选择充电插座</view>
+      <view>
+          <view class="d-flex justify-content-end">
+            <view class="d-flex align-items-center margin-right-2">
+                <view class="free"></view>
+                <text>空闲</text>
+            </view>
+            <view class="d-flex align-items-center margin-right-2">
+                <view class="use"></view>
+                <text>占用</text>
+            </view>
+            <view class="d-flex align-items-center">
+                <view class="fi"></view>
+                <text>故障</text>
+            </view>
+          </view>
+      </view>
+    </view>
+    <view class="port-list d-flex flex-wrap">
+      <view 
+        class="port position-relative {{item.port === selectPort ? 'active' : item.status === 2 ? 'use' : item.status === 3 ? 'fi' : ''}}" 
+        a:for="{{portList}}" 
+        a:key="{{item.port}}"
+        data-item="{{item}}"
+        onTap="handleSelectPort"
+      >
+        <view class="position-absolute port-content d-flex justify-content-center align-items-center text-primary">{{item.port}}号</view>
+      </view>
+    </view>
+</view>

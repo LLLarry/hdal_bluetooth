@@ -1,0 +1,7 @@
+{
+  "defaultTitle": "正在充电",
+  "usingComponents": {
+    "order-list": "/components/order-list/order-list",
+    "order-detail": "/components/order-detail/order-detail"
+  }
+}

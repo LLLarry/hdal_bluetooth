@@ -1,0 +1,4 @@
+<view class="charge-phone d-flex" a:if="{{ phone.length > 0 }}">
+ <view class="text-size-default">如有疑问，请联系：</view>
+ <view class="text-primary margin-left-1 text-size-default" onTap="handleCall">{{phone}}</view>
+</view>

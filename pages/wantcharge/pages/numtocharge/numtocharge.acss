@@ -1,0 +1,5 @@
+.input {
+  height: 92rpx;
+  line-height: 92rpx;
+  box-sizing: border-box;
+}

@@ -1,0 +1,7 @@
+
+<view>
+  this is a blank page
+  <button type="primary" onTap="">
+  按钮
+  </button>
+</view>

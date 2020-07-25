@@ -1,0 +1,11 @@
+<!-- 选择模板 -->
+<view class="icon-tem d-flex padding-x-3 padding-top-2 flex-wrap justify-content-between">
+  <view 
+    class="icon-tem-item text-size-default d-flex align-item-center justify-content-center margin-bottom-3 text-primary {{defaultIndex === index ? 'active' : ''}}"
+    a:for="{{temList}}"
+    a:key="{{item.id}}"
+    data-item="{{item}}"
+    data-index="{{index}}"
+    onTap="handleSelectTem"
+  >{{item.name}}</view>
+</view>

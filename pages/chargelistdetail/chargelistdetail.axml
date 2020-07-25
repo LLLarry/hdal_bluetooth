@@ -1,0 +1,54 @@
+<view class="padding-top-3">
+    <!-- <view class="detail-list margin-x-3 ">
+      <view class="top text-white rounded bg-primary padding-3 ">
+        <view class="text-center margin-bottom-1 text-size-sm">付款金额</view>
+        <view class="text-center pay-money">¥3.00</view>
+        <view class="tip-info text-center padding-y-2 text-size-sm ">
+          未成功充电的订单，将在10分钟内将付款金额按照原路退还
+        </view>
+
+        <view class="top-bottom d-flex justify-content-between text-size-md padding-top-3">
+          <text>订单状态</text>
+          <text>已完成</text>
+        </view>
+      </view>
+      <view class="detail padding-3 bg-white" >
+          <view class="detail-item d-flex justify-content-between text-size-md padding-y-1 text-666">
+              <text>订单编号</text>
+              <text>14556456231123134564</text>
+          </view>
+          <view class="detail-item d-flex justify-content-between text-size-md padding-y-1 text-666">
+              <text>支付方式</text>
+              <text>支付宝支持</text>
+          </view>
+           <view class="detail-item d-flex justify-content-between text-size-md padding-y-1 text-666">
+              <text>结束原因</text>
+              <text>充电完成</text>
+          </view>
+          <view class="detail-item d-flex justify-content-between text-size-md padding-y-1 text-666">
+              <text>设备编号</text>
+              <text>002253</text>
+          </view>
+          <view class="detail-item d-flex justify-content-between text-size-md padding-y-1 text-666">
+              <text>充电端口</text>
+              <text>03</text>
+          </view>
+          <view class="detail-item d-flex justify-content-between text-size-md padding-y-1 text-666">
+              <text>开始时间</text>
+              <text>2020-07-20 02:05:45</text>
+          </view>
+          <view class="detail-item d-flex justify-content-between text-size-md padding-y-1 text-666">
+              <text>结束时间</text>
+              <text>2020-07-20 08:09:32</text>
+          </view>
+      </view>
+    </view> -->
+    <order-detail result="{{result}}">
+        <view class="tip-info text-center padding-y-2 text-size-sm " slot="after">
+          未成功充电的订单，将在10分钟内将付款金额按照原路退还
+        </view>
+    </order-detail>
+    <view class="position-fixed goHome">
+      <button type="primary" onTap="handleGoHome"> 返回首页 </button>
+    </view>
+</view>

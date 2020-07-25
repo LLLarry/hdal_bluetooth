@@ -1,0 +1,4 @@
+<view class="d-flex paytype align-items-center"  a:if="{{text.length > 0}}">
+  <view class="iconfont {{icon}} margin-right-2"></view>
+  <view class="">{{text}}</view>
+</view>

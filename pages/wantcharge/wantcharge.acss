@@ -1,0 +1,13 @@
+.chargeByScan ,.chargeByInput {
+  width: 100%;
+  padding-top: 5vh;
+}
+.chargeByInput .charge-btn,
+.chargeByScan .charge-btn{
+    width: 90%;
+    height: 94rpx;
+    border-radius: 94rpx;
+}
+.charge-btn .iconfont {
+  font-size: 34rpx;
+}

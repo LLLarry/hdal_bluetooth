@@ -1,0 +1,13 @@
+page {
+  background-color: #fff;
+}
+.wrapper {
+  padding: 20rpx 15vw;
+}
+.wrapper-item text:first-child {
+  display: list-item;
+  list-style-type: circle;
+}
+.wrapper-item {
+  padding-left: 80rpx;
+}

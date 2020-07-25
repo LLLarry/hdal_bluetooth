@@ -1,0 +1,46 @@
+<view>
+  <page-result
+  type="error"
+  title="异常错误"
+  brief="设备离线"
+  local="{{true}}"
+  onTapLeft="onTapLeft"
+  onTapRight="onTapRight"
+  />
+  <devide height="30" />
+  <view class="wrapper text-size-default">
+    <view class="margin-bottom-4">
+      <view class="text-size-default margin-bottom-2">设备信息</view>
+      <view class="wrapper-item d-flex padding-y-1 text-size-md">
+        <text>设备号：</text>
+        <text>000001</text>
+      </view>
+      <view class="wrapper-item d-flex padding-y-1 text-size-md">
+        <text>设备名称：</text>
+        <text>测试名称</text>
+      </view>
+      <view class="wrapper-item d-flex padding-y-1 text-size-md">
+        <text>所属小区：</text>
+        <text>测试小区</text>
+      </view>
+    </view>
+
+    <view class="res-wrapper">
+      <view class="text-size-default margin-bottom-2">解决办法</view>
+      <view class="wrapper-item d-flex padding-y-1 text-size-md">
+        <text>设备号：</text>
+        <text>000001</text>
+      </view>
+      <view class="wrapper-item d-flex padding-y-1 text-size-md">
+        <text>设备号：</text>
+        <text>000001</text>
+      </view>
+      <view class="wrapper-item d-flex padding-y-1 text-size-md">
+        <text>设备号：</text>
+        <text>000001</text>
+      </view>
+    </view>
+  </view>
+  <devide height="30" />
+  <view class="padding-x-3 padding-top-4"><charge-phone phone="15538065635" /></view>
+</view>

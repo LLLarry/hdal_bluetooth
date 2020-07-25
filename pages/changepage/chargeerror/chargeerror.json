@@ -1,0 +1,8 @@
+{
+  "defaultTitle": "异常页",
+  "usingComponents": {
+    "page-result": "mini-ali-ui-rpx/es/page-result/index",
+     "devide": "/components/devide/devide",
+     "charge-phone": "/components/charge-phone/charge-phone"
+  }
+}

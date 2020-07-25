@@ -1,0 +1,9 @@
+{
+  "component": true,
+  "usingComponents": {
+    "list": "mini-ali-ui-rpx/es/list/index",
+    "list-item": "mini-ali-ui-rpx/es/list/list-item/index",
+    "am-radio": "mini-ali-ui-rpx/es/am-radio/index",
+    "charge-paytype-item": "/components/charge-paytype-item/charge-paytype-item"
+  }
+}
