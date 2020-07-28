@@ -51,4 +51,9 @@
   <charge-popup chargeInfoShow="{{chargeInfoShow}}" >
     <charge-info code="{{code}}" areaname="{{result.areaname}}" chargeInfo="{{result.chargeInfo}}" />
   </charge-popup>
+
+ <!-- 弹框 -- 关闭小程序 -->
+  <close-minipro ref="handleGetCloseMini" >
+    获取数据异常
+  </close-minipro>
 </view>

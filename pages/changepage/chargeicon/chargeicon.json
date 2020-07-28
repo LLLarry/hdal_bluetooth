@@ -5,6 +5,7 @@
     "charge-paytype-item": "/components/charge-paytype-item/charge-paytype-item",
     "charge-paytype": "/components/charge-paytype/charge-paytype",
     "charge-phone": "/components/charge-phone/charge-phone",
-    "select-tem": "/components/select-tem/select-tem"
+    "select-tem": "/components/select-tem/select-tem",
+    "close-minipro": "/components/close-minipro/close-minipro"
   }
 }

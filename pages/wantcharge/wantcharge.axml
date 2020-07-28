@@ -10,7 +10,5 @@
     <view class="chargeByInput d-flex justify-content-center" >
       <view class="charge-btn bg-primary d-flex align-items-center justify-content-center text-white text-bold" onTap="handleGo">常用电站（编号充电）</view>
     </view>
-
-    <button onTap="handlego">ssss</button>
   </view>
 </view>

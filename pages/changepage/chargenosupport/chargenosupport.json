@@ -1,0 +1,6 @@
+{
+  "defaultTitle": "不支持此设备",
+  "usingComponents": {
+    "page-result": "mini-ali-ui-rpx/es/page-result/index"
+  }
+}

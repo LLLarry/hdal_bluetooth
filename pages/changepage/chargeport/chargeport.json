@@ -1,5 +1,6 @@
 {
   "titlePenetrate": "NO",
+  "defaultTitle": "智慧款充电",
   "usingComponents": {
    "charge-port": "/components/charge-port/charge-port",
    "charge-tem": "/components/charge-tem/charge-tem",
@@ -8,6 +9,7 @@
    "charge-tip": "/components/charge-tip/charge-tip",
    "charge-info": "/components/charge-info/charge-info",
    "charge-header": "/components/charge-header/charge-header",
-   "charge-popup": "/components/charge-popup/charge-popup"
+   "charge-popup": "/components/charge-popup/charge-popup",
+   "close-minipro": "/components/close-minipro/close-minipro"
  }
 }

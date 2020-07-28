@@ -4,10 +4,19 @@ page {
 .wrapper {
   padding: 20rpx 15vw;
 }
+.wrapper-item {
+  padding-left: 80rpx;
+}
 .wrapper-item text:first-child {
   display: list-item;
   list-style-type: circle;
 }
-.wrapper-item {
-  padding-left: 80rpx;
+.result-wrapper .wrapper-item{
+  list-style-type: none;
+}
+.result-wrapper .wrapper-item text:first-child {
+  list-style-type: none;
+}
+.res-wrapper .wrapper-item {
+  padding-left: 50rpx;
 }

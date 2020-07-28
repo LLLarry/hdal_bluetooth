@@ -10,10 +10,10 @@ Component({
   didUpdate() {},
   didUnmount() {},
   methods: {
-    toggleCloseMiniPro(flag){
-      this.setData({
-        isshow: flag
-      })
-    }
+    // toggleCloseMiniPro(flag){
+    //   this.setData({
+    //     isshow: flag
+    //   })
+    // }
   },
 });

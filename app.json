@@ -14,7 +14,9 @@
     "pages/changepage/chargeicon/chargeicon",
     "pages/rechargepage/rechargeoffline/rechargeoffline",
     "pages/rechargepage/rechargeonlinecard/rechargeonlinecard",
-    "pages/changepage/chargeerror/chargeerror"
+    "pages/changepage/chargeerror/chargeerror",
+    "pages/changepage/chargenosupport/chargenosupport",
+    "pages/unusualpage/keyerror/keyerror"
   ],
   "window": {
     "defaultTitle": "My App",

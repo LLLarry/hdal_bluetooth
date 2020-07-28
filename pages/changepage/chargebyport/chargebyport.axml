@@ -1,6 +1,6 @@
 <view>
  <!-- 顶部header部分 -->
-  <charge-header code="{{result.code+'-'+selectPort}}" equname="{{result.equname}}"  phonenum="{{result.phonenum}}"  />
+  <charge-header code="{{code+'-'+selectPort}}" equname="{{result.equname}}"  phonenum="{{result.phonenum}}"  />
 
   <!-- 中间main部分 -->
   <view class="main padding-3">
@@ -36,4 +36,9 @@
   <charge-popup chargeInfoShow="{{chargeInfoShow}}" from="{{2}}" >
     <charge-info code="{{result.code}}" areaname="{{result.areaname}}" chargeInfo="{{result.chargeInfo}}" />
   </charge-popup>
+
+  <!-- 弹框 -- 关闭小程序 -->
+  <close-minipro ref="handleGetCloseMini" >
+    获取数据异常
+  </close-minipro>
 </view>

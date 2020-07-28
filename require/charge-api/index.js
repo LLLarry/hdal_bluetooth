@@ -1,9 +1,8 @@
 import api from '../api'
-
 // 获取通过设备号硬件版本号
 export const getHardversionByCode= (data)=>{
   return api({
-    url: "/alipayOrigin/getHardversion",
+    url: "/appletAlipay/getHardversion",
     hideLoading: true,
     data: data,
   })
@@ -12,7 +11,15 @@ export const getHardversionByCode= (data)=>{
 // 获取通过设备号硬件版本号
 export const deviceCharge= (data)=>{
   return api({
-    url: "/alipayOrigin/deviceCharge",
+    url:  "/appletAlipay/deviceCharge",
+    data: data,
+  })
+}
+
+// 获取离线充值机的充值卡号
+export const getOfflinedeviceToCradID= (data)=>{
+  return api({
+    url:  "/queryOfflineCard",
     data: data,
   })
 }

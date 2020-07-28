@@ -1,0 +1,6 @@
+.am-modal-show {
+  z-index: 999;
+}
+.am-modal {
+  top: -8%;
+}

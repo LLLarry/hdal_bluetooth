@@ -11,9 +11,6 @@ Page({
     },
         onLoad(options) {
           my.hideBackHome();
-          my.setNavigationBar({
-            title: '测试品牌名称'
-          })
           this.setData({
             code: options.code
           })
@@ -28,17 +25,16 @@ Page({
                 defaultIndex: info.defaultindex,
                 result: info
               })
+              if(info.brandname){
+                my.setNavigationBar({
+                  title: info.brandname
+                })
+              }
             }else{
-              my.alert({
-                title: '提示',
-                content: '相应失败，请稍后再试！'
-              })
+              this.closeMiniPro.setData({isshow: true})
             }
           }catch(e){
-            my.alert({
-              title: '提示',
-              content: '<navigator open-type="exit" target="miniProgram">Navigate</navigator>',
-            })
+            this.closeMiniPro.setData({isshow: true})
           }
         },
         // 关掉支付方式弹出层
@@ -77,6 +73,10 @@ Page({
           this.setData({
             paytype
           })
+        },
+        //获取 关闭小程序弹框实例
+        handleGetCloseMini(ref){
+          this.closeMiniPro= ref
         },
         // 点击开始充电按钮
         handleSubmit(){

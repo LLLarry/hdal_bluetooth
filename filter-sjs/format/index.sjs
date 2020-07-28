@@ -4,7 +4,8 @@
 export const format =  function (value,type="yyyy-MM-DD hh:mm:ss") {
   let fmtVal= value
   if(typeof value === 'string'){
-    fmtVal= value.replace(getRegExp("-","g"),'/').replace(getRegExp("[.][0-9]+([+][0-9]+[ZT]?)?","g"), '')
+    // fmtVal= value.replace(getRegExp("-","g"),'/').replace(getRegExp("[.][0-9]+([+][0-9]+[ZT]?)?","g"), '')
+     fmtVal= value.replace(getRegExp("-","g"),'/').replace(getRegExp("[.].+","g"), '')
     if(getRegExp('[0-9][TZ][0-9]').test(value)){
       let val= fmtVal.replace(getRegExp("[TZ]","g")," ")
       fmtVal= getDate(val).getTime()+8*60*60*1000

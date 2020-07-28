@@ -1,46 +1,49 @@
+<import-sjs from="/filter-sjs/format/index.sjs" name="{format}"></import-sjs>
 <view>
   <page-result
   type="error"
   title="异常错误"
-  brief="设备离线"
+  brief="{{ statuscode == '2001' ? '设备离线' :  statuscode == '2002' ? '设备未绑定' : statuscode == '2003' ? '设备已到期' : statuscode == '2004' ? '设备号不正确' :  '异常'}}"
   local="{{true}}"
-  onTapLeft="onTapLeft"
-  onTapRight="onTapRight"
   />
   <devide height="30" />
   <view class="wrapper text-size-default">
+  <!-- 设备信息 -->
     <view class="margin-bottom-4">
       <view class="text-size-default margin-bottom-2">设备信息</view>
-      <view class="wrapper-item d-flex padding-y-1 text-size-md">
+      <view class="wrapper-item d-flex padding-y-1 text-size-md text-333">
         <text>设备号：</text>
-        <text>000001</text>
+        <text>{{code}}</text>
       </view>
-      <view class="wrapper-item d-flex padding-y-1 text-size-md">
+      <view class="wrapper-item d-flex padding-y-1 text-size-md text-333" a:if="{{ res_info.equipmentname }}">
         <text>设备名称：</text>
-        <text>测试名称</text>
+        <text>{{ res_info.equipmentname }}</text>
       </view>
-      <view class="wrapper-item d-flex padding-y-1 text-size-md">
+      <view class="wrapper-item d-flex padding-y-1 text-size-md text-333" a:if="{{ res_info.areaname }}">
         <text>所属小区：</text>
-        <text>测试小区</text>
+        <text>{{ res_info.areaname }}</text>
+      </view>
+      <view class="wrapper-item d-flex padding-y-1 text-size-md text-333" a:if="{{ res_info.expirationtime }}">
+        <text>到期时间：</text>
+        <text>{{ format(res_info.expirationtime,1) }}</text>
       </view>
     </view>
-
-    <view class="res-wrapper">
+    <!-- 可能原因 -->
+     <view class="margin-bottom-4" a:if="{{ statuscode == '2001' }}">
+      <view class="text-size-default margin-bottom-2">可能原因</view>
+      <view class="wrapper-item d-flex padding-y-1 text-size-md text-333" a:for="{{ resove_type[statuscode] }}" a:key="{{index}}">
+        <!-- <text></text> -->
+        <text>{{ item }}</text>
+      </view>
+    </view>
+  <!-- 解决办法 -->
+    <view class="res-wrapper result-wrapper" a:if="{{ statuscode == '2002' || statuscode == '2003' || statuscode == '2004'}}">
       <view class="text-size-default margin-bottom-2">解决办法</view>
-      <view class="wrapper-item d-flex padding-y-1 text-size-md">
-        <text>设备号：</text>
-        <text>000001</text>
-      </view>
-      <view class="wrapper-item d-flex padding-y-1 text-size-md">
-        <text>设备号：</text>
-        <text>000001</text>
-      </view>
-      <view class="wrapper-item d-flex padding-y-1 text-size-md">
-        <text>设备号：</text>
-        <text>000001</text>
+      <view class="wrapper-item d-flex padding-y-1 text-size-md text-333" a:for="{{ resove_type[statuscode] }}" a:key="{{index}}">
+        <text>{{index+1}}、{{ item }}</text>
       </view>
     </view>
   </view>
   <devide height="30" />
-  <view class="padding-x-3 padding-top-4"><charge-phone phone="15538065635" /></view>
+  <view class="padding-x-3 padding-top-4" a:if="{{res_info.phonenum}}"><charge-phone phone="{{res_info.phonenum}}" /></view>
 </view>

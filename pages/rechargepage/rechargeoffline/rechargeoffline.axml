@@ -1,9 +1,9 @@
 <view>
-  <view class="padding-x-3 text-size-default text-center">设备编号：000065</view>
+  <view class="padding-x-3 text-size-default text-center">设备编号：{{code}}</view>
   <!-- 充值卡信息 -->
   <view class="recharge-info padding-3 margin-x-3 d-flex flex-wrap margin-y-2">
-    <view class=" text-size-md recharge-info-item"><text>卡号: </text><text>5611246</text></view>
-    <view class=" text-size-md recharge-info-item"><text>余额: </text><text>156.30元</text></view>
+    <view class=" text-size-md recharge-info-item"><text>卡号: </text><text>{{cardID}}</text></view>
+    <view class=" text-size-md recharge-info-item"><text>余额: </text><text>{{ balance.toFixed(2) }}元</text></view>
   </view>
   <devide height="30" /> 
   <!-- 充值模板 -->
@@ -20,6 +20,11 @@
   <!-- 联系电话 -->
   <devide height="30" />
     <view class="padding-3">
-    <charge-phone phone="15538065635" />
+    <charge-phone phone="{{phonenum}}" />
   </view>
+
+
+  <close-minipro ref="handleGetCloseMini" >
+    {{tipMessage}}
+  </close-minipro>
 </view>
