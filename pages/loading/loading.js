@@ -1,29 +1,24 @@
 import { getHardversionByCode } from '/require/charge-api'
 import { checkURL } from '/utils'
 const app= getApp()
+let getOptions= null
 Page({
   data: {
     isClodeMiniPro: false, //是否显示关闭小程序弹框
   },
   onLoad(options) {
-    my.hideBackHome();
-    my.setNavigationBar({
-      title: '正在加载'
-    })
-    // my.getAuthCode({
-    //   scopes: ['auth_base'],
-    //   success: (res) => {
-    //      console.log(res)
-    //     my.alert({
-    //       content: res.authCode,
-    //     });
-    //   },
-    // });
-    if(options.code){ //从里面输入设备号进来
-      this.handleInit(options.code)
-    }else{ //从外面扫码进来
-      this.handleReturnVal()
-    }
+    getOptions= options
+    
+  },
+  onReady(){
+    setTimeout(()=>{ //在 onReady中加入延时，是为了解决扫码跳转之后出错无法跳出小程序的bug
+      my.hideBackHome();
+      if(getOptions.code){ //从里面输入设备号进来
+        this.handleInit(getOptions.code)
+      }else{ //从外面扫码进来
+        this.handleReturnVal()
+      }
+    },300)
   },
   // 处理初始化返回值（扫码跳进来）
   handleReturnVal(){
@@ -34,6 +29,8 @@ Page({
       if(checkDevice.status === 200){
          if(checkDevice.type === 1){ //跳进设备
             this.handleInit(checkDevice.code)
+         }else if(checkDevice.type === 2){ //跳进设备
+            this.handleInit(checkDevice.codeAndPort)
          }else{ //跳进在线卡
              my.reLaunch({
                 url: `/pages/rechargepage/rechargeonlinecard/rechargeonlinecard?cardNumber=${checkDevice.cardNumber}`

@@ -18,21 +18,32 @@ export const checkURL= (base_url,url)=>{
       key: 'code'
     },
     {
+      path: '/oauth2Portpay',
+      regexp: /^\d{6,8}$/,
+      key: 'codeAndPort'
+    },
+    {
       path: '/oauth2online',
       regexp: /^[0-9A-F]{8}$/i,
       key: 'cardNumber'
     }
   ]
-  if(c_url.includes(base_url+checkState[0].path)){
+  if(c_url.includes(base_url+checkState[0].path)){ //扫设备二维码
     return{
        status: checkState[0].regexp.test(c_data[checkState[0].key]) ? 200 : 201, //200检验成功,201、设备号或在线卡检验不通过
        type: 1,
        ...c_data
     }
-  }else if(c_url.includes(base_url+checkState[1].path)){
-     return{
+  }if(c_url.includes(base_url+checkState[1].path)){ //扫端口二维码
+    return{
        status: checkState[1].regexp.test(c_data[checkState[1].key]) ? 200 : 201, //200检验成功,201、设备号或在线卡检验不通过
        type: 2,
+       ...c_data
+    }
+  }else if(c_url.includes(base_url+checkState[2].path)){ //扫在线卡二维码
+     return{
+       status: checkState[2].regexp.test(c_data[checkState[2].key]) ? 200 : 201, //200检验成功,201、设备号或在线卡检验不通过
+       type: 3,
        ...c_data
     }
   }else {

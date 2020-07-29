@@ -23,3 +23,12 @@ export const getOfflinedeviceToCradID= (data)=>{
     data: data,
   })
 }
+
+
+// 十路智慧款获取trade_no
+export const getTradeNoFormchargeport= (data)=>{
+   return api({
+    url:  "/alipay/newUserChargePay",
+    data: data,
+  })
+}

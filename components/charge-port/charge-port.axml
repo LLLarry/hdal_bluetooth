@@ -21,7 +21,7 @@
     </view>
     <view class="port-list d-flex flex-wrap">
       <view 
-        class="port position-relative {{item.port === selectPort ? 'active' : item.status === 2 ? 'use' : item.status === 3 ? 'fi' : ''}}" 
+        class="port position-relative {{item.port === selectPort ? 'active' : item.portStatus == 2 ? 'use' : item.portStatus == 4 ? 'fi' : ''}}" 
         a:for="{{portList}}" 
         a:key="{{item.port}}"
         data-item="{{item}}"

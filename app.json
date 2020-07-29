@@ -19,7 +19,7 @@
     "pages/unusualpage/keyerror/keyerror"
   ],
   "window": {
-    "defaultTitle": "My App",
+    "defaultTitle": "自助充电平台",
     "pullRefresh": false,
     "allowsBounceVertical": "NO"
   },

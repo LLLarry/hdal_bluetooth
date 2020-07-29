@@ -1,5 +1,7 @@
+import { getUserid } from '/require/home'
 App({
   globalData: {
+     userid: '', //用户id
      query: null , //扫码获取传递过来的参数
      BASE_URL: 'http://www.tengfuchong.com.cn', //扫码二维码基础路径
   },
@@ -9,6 +11,7 @@ App({
     // }
      this.globalData.query= JSON.stringify({qrCode: "http://www.tengfuchong.com.cn/oauth2pay?code=0000011"})
     //  this.globalData.query= JSON.stringify({qrCode: "http://www.tengfuchong.com.cn/oauth2online?cardNumber=0Baa4f31"})
+    this.handleGetUserId()
   },
   onShow(options) {
     // 从后台被 scheme 重新打开
@@ -42,4 +45,15 @@ App({
     // "pages/changepage/chargeerror/chargeerror",
     // "pages/changepage/chargenosupport/chargenosupport"
   },
+  handleGetUserId(){
+    my.getAuthCode({
+      scopes: ['auth_base'],
+      success: async (res) => {
+        let info= await getUserid({authCode: res.authCode})
+        if(info.code === 200){
+          this.globalData.userid= info.userid
+        }
+      },
+    });
+  }
 });

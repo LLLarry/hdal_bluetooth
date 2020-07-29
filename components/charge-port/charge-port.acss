@@ -50,14 +50,14 @@
 }
 
 .port-list .port.use {
-  background-color: #A6A6A6 !important;
+  background-color: #D43024 !important;
 }
 .port-list .port.use .port-content {
   color: #FFFFFF !important;
 }
 
 .port-list .port.fi {
-  background-color: #D43024 !important;
+  background-color: #A6A6A6 !important;
 }
 .port-list .port.fi .port-content {
   color: #FFFFFF !important;

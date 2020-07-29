@@ -1,4 +1,5 @@
 import { deviceCharge,getOfflinedeviceToCradID } from '/require/charge-api'
+let getOptions= null
 Page({
   data: {
     code: '', //设备号
@@ -10,12 +11,21 @@ Page({
     tipMessage: '获取数据异常', //提示信息
   },
   onLoad(options) {
-    console.log('options',options)
-    my.hideBackHome();
-    this.handleGetCardID(options.code)
-    this.setData({
-      code: options.code
-    })
+    getOptions= options
+    // my.hideBackHome();
+    // this.handleGetCardID(options.code)
+    // this.setData({
+    //   code: options.code
+    // })
+  },
+  onReady(){
+    setTimeout(()=>{
+      my.hideBackHome();
+      this.handleGetCardID(getOptions.code)
+      this.setData({
+        code: getOptions.code
+      })
+    },300)
   },
   // 获取设备上的充电卡
   async handleGetCardID(code){

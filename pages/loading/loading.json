@@ -1,4 +1,5 @@
 {
+  "defaultTitle": "正在加载",
   "usingComponents": {
      "close-minipro": "/components/close-minipro/close-minipro",
      "page-result": "mini-ali-ui-rpx/es/page-result/index"

@@ -1,4 +1,5 @@
 import { deviceCharge } from '/require/charge-api'
+let getOptions= null
 Page({
   data: {
     defaultIndex: 0, //默认索引
@@ -8,10 +9,14 @@ Page({
     ifwallet: 2, //是否强制钱包支付
   },
   onLoad(options) {
-    my.hideBackHome();
-    this.handleInit(options.code)
+    getOptions= options
   },
-
+  onReady(){
+    setTimeout(() => {
+      my.hideBackHome();
+      this.handleInit(getOptions.code)
+    });
+  },
   // 初始化数据
   async handleInit(code){
     try{

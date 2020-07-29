@@ -18,10 +18,15 @@ Page({
   },
   //扫码跳转到编号充电
   handleScanResult(url){
-    const resObj= checkURL(BASE_URL,url,1)
+    const resObj= checkURL(BASE_URL,url)
+    console.log(resObj,url)
     if(resObj.status === 200 && resObj.type === 1){
       my.reLaunch({
         url: `/pages/loading/loading?code=${resObj.code}`
+      });
+    }else if(resObj.status === 200 && resObj.type === 2){
+      my.reLaunch({
+        url: `/pages/loading/loading?code=${resObj.codeAndPort}`
       });
     }else{
       my.alert({

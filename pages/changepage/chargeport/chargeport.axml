@@ -54,6 +54,6 @@
 
  <!-- 弹框 -- 关闭小程序 -->
   <close-minipro ref="handleGetCloseMini" >
-    获取数据异常
+    {{ tipMessage }}
   </close-minipro>
 </view>

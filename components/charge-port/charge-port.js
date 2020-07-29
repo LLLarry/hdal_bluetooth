@@ -6,14 +6,15 @@ Component({
     selectPort: null, //选中端口
   },
   didMount() {},
-  didUpdate() {},
+  didUpdate() {
+  },
   didUnmount() {},
   methods: {
     handleSelectPort(e){
       const item= e.target.dataset.item
-      if([2,3].includes(item.status)){
+      if(['2','4'].includes(item.portStatus)){
          return my.showToast({
-            content: item.status === 3 ? '该端口已被占用' : '改端口为故障端口',
+            content: item.portStatus == '2' ? '该端口已被占用' : '改端口为故障端口',
             duration: 1000,
           });
       }

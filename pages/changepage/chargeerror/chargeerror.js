@@ -11,7 +11,7 @@ Page({
     }
   },
   onLoad(options) {
-    console.log(options)
+    my.hideBackHome();
     this.setData({
       code: options.code,
       statuscode: options.statuscode,

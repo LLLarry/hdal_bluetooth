@@ -34,7 +34,7 @@
 
   <!-- 充电信息界面 from === 2 来自端口充电 -->
   <charge-popup chargeInfoShow="{{chargeInfoShow}}" from="{{2}}" >
-    <charge-info code="{{result.code}}" areaname="{{result.areaname}}" chargeInfo="{{result.chargeInfo}}" />
+    <charge-info code="{{code}}" areaname="{{result.areaname}}" chargeInfo="{{result.chargeInfo}}" />
   </charge-popup>
 
   <!-- 弹框 -- 关闭小程序 -->
