@@ -1,6 +1,6 @@
 <view>
  <!-- 顶部header部分 -->
-  <charge-header code="{{code}}" equname="{{result.equname}}"  phonenum="{{result.phonenum}}"  />
+  <charge-header code="{{code}}" equname="{{result.equipmentname}}"  phonenum="{{result.phonenum}}"  />
   <!-- 中间main部分 -->
   <view class="main padding-3">
     <!-- 展示端口号 -->

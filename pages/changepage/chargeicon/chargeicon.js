@@ -1,12 +1,16 @@
-import { deviceCharge } from '/require/charge-api'
+import { deviceCharge,getTradeNoFormScancharge } from '/require/charge-api'
+import pay from '/utils/pay'
+const app= getApp()
 let getOptions= null
 Page({
   data: {
+    code: '',
     defaultIndex: 0, //默认索引
     paytype: 1, //支付方式 1、支付宝 2、钱包  3、包月  如果ifwallet == 1 时 paytype = 2
     temList: [],
     phonenum: "", //商户手机号
     ifwallet: 2, //是否强制钱包支付
+    tipMessage: '获取数据异常',
   },
   onLoad(options) {
     getOptions= options
@@ -14,6 +18,9 @@ Page({
   onReady(){
     setTimeout(() => {
       my.hideBackHome();
+      this.setData({
+        code: getOptions.code
+      })
       this.handleInit(getOptions.code)
     });
   },
@@ -56,13 +63,27 @@ Page({
   },
   // 点击开始充电
   handleSubmit(){
-    my.alert({
-      title: '提示',
-      content: JSON.stringify({
-        paytype: this.data.paytype,
-        selectTem: this.data.temList[this.data.defaultIndex]
+    const userid=  app.globalData.userid
+    const checkList= [
+        {
+          check: !!userid,
+          content: '未获取到用户id'
+        },
+        {
+          check: this.data.temList.length > 0,
+          content: '模板数据为空'
+        }
+    ]
+    pay.call(this,checkList,()=>(
+      getTradeNoFormScancharge({
+        userid,
+        code: this.data.code,
+        tempid: this.data.temList[this.data.defaultIndex].id,
+        param: 1,
+        hardversion: '03'
       })
-    });
+    ))
+  
   },
   //获取 关闭小程序弹框实例
   handleGetCloseMini(ref){

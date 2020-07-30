@@ -1,4 +1,6 @@
-import { deviceCharge } from '/require/charge-api'
+import { deviceCharge,getTradeNoFormScancharge,getPortStatusByPort } from '/require/charge-api'
+import pay from '/utils/pay'
+const app= getApp()
 let getOptions= null
 Page({
   data: {
@@ -9,6 +11,7 @@ Page({
     defaultIndex: 1, //默认选中索引
     paytype: 1, //支付方式 1、支付宝 2、钱包  3、包月  如果ifwallet == 1 时 paytype = 2
     result: null,
+    tipMessage: '异常信息'
   },
   onLoad(options) {
     getOptions= options
@@ -36,11 +39,35 @@ Page({
             title: info.brandname
           })
         }
+        // 获取端口状态
+        this.handleChangePortStatus()
       }else{
         this.closeMiniPro.setData({isshow: true})
       }
     }catch(e){
       console.log(e)
+      this.closeMiniPro.setData({isshow: true})
+    }
+  },
+  // 修改端口状态
+  async handleChangePortStatus(){
+    try{
+      let info= await getPortStatusByPort({code: this.data.code,port: this.data.selectPort,nowtime: this.data.result.nowtime})
+      if(info.state == 'error'){
+        this.setData({
+          tipMessage: '连接失败，请确认设备是否在线'
+        })
+        this.closeMiniPro.setData({isshow: true})
+      }else if(info.portstatus != '空闲'){
+        this.setData({
+          tipMessage: '此端口不可用'
+        })
+        this.closeMiniPro.setData({isshow: true})
+      }
+    }catch(err){
+      this.setData({
+        tipMessage: '端口状态获取出错'
+      })
       this.closeMiniPro.setData({isshow: true})
     }
   },
@@ -90,14 +117,35 @@ Page({
   },
   // 点击开始充电按钮
   handleSubmit(){
-    my.alert({
-      title: '选中信息',
-      content: JSON.stringify({
-        paytype: this.data.paytype,
-        selectPort: this.data.selectPort,
-        defaultIndex: this.data.defaultIndex,
-        tem: this.data.result.templatelist[this.data.defaultIndex]
-      })
-    })
+    const userid= app.globalData.userid
+    const checkList= [
+      {
+        check: !!userid,
+        content: '未获取到用户id'
+      },
+      {
+        check: this.data.selectPort,
+        content: '未选择端口号'
+      },
+      {
+        check: this.data.result.templatelist.length > 0,
+        content: '模板数据为空'
+      },
+    ]
+    pay.call(this,checkList,()=>(
+      // getTradeNoFormchargeport({
+      //   userid,
+      //   code: this.data.code,
+      //   port: this.data.selectPort,
+      //   tempid: this.data.result.templatelist[this.data.defaultIndex].id
+      // })
+      getTradeNoFormScancharge({
+          userid,
+          code: this.data.code,
+          tempid: this.data.result.templatelist[this.data.defaultIndex].id,
+          param: this.data.selectPort,
+          hardversion: '01'
+        })
+    ))
   }
 });

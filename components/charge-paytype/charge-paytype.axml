@@ -1,6 +1,6 @@
 <!-- 支付方式组件 -->
 <list>
-  <list-item onClick="onCheckClick" data-val="{{2}}">
+  <!-- <list-item onClick="onCheckClick" data-val="{{2}}">
     <charge-paytype-item text="钱包支付" icon="icon-qianbao"></charge-paytype-item>
     <am-radio slot="extra" value="{{2}}" checked="{{paytype === 2}}"/>
   </list-item>
@@ -8,11 +8,16 @@
   <list-item onClick="onCheckClick" data-val="{{1}}" a:if="{{ifwallet !== 1}}">
     <charge-paytype-item text="支付宝支付" icon="icon-big-Pay"></charge-paytype-item>
     <am-radio slot="extra" value="{{1}}" checked="{{paytype === 1}}"/>
-  </list-item>
+  </list-item> -->
   <!-- <list-item data-val="{{3}}" onClick="onCheckClick" >
     <view class="d-flex paytype">
       <view class="">包月支付</view>
     </view>
     <am-radio slot="extra" value="{{3}}" checked="{{paytype === 3}}"/>
   </list-item> -->
+  <!-- 下面不受 ifwallet 的影响 -->
+  <list-item onClick="onCheckClick" data-val="{{1}}">
+    <charge-paytype-item text="支付宝支付" icon="icon-big-Pay"></charge-paytype-item>
+    <am-radio slot="extra" value="{{1}}" checked="{{paytype === 1}}"/>
+  </list-item>
 </list>
