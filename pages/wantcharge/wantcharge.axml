@@ -10,5 +10,14 @@
     <view class="chargeByInput d-flex justify-content-center" >
       <view class="charge-btn bg-primary d-flex align-items-center justify-content-center text-white text-bold" onTap="handleGo">常用电站（编号充电）</view>
     </view>
+
+
+     <view class="chargeByInput d-flex justify-content-center" >
+      <input onInput="handleChange" value="A40B13CF"></input>
+    </view>
+
+    <view class="chargeByInput d-flex justify-content-center" >
+      <view class="charge-btn bg-primary d-flex align-items-center justify-content-center text-white text-bold" onTap="testOnlineCard">充值在线卡</view>
+    </view>
   </view>
 </view>

@@ -1,4 +1,7 @@
 import { getOnlinecardNumData,bindPhone } from '/require/onlinecard-api'
+import { getTradeNoFormScancharge } from '/require/charge-api'
+import pay from '/utils/pay';
+const app= getApp()
 Page({
   data: {
     defaultIndex: 0, //默认索引
@@ -12,6 +15,7 @@ Page({
     servephone: '', //服务电话
     tipMessage: '异常错误', //提示信息
     carduid: '', //在线卡绑定用户的id
+    cardstatus: 0 //卡状态
   },
   onLoad(options) {
     my.hideBackHome();
@@ -33,7 +37,9 @@ Page({
           cardsendmoney: info.cardsendmoney,
           temList: info.tempsonlist,
           servephone: info.servephone,
-          carduid: info.carduid
+          carduid: info.carduid,
+          cardstatus: info.cardstatus,
+          tipMessage: '获取数据异常', //提示信息
         })
         if(info.brandname){
           my.setNavigationBar({
@@ -41,7 +47,10 @@ Page({
           })
         }
       }else if(info.code === 2010){ //在线卡绑定手机号
-          
+          this.setData({
+            tipMessage: info.message
+          })
+          this.closeMiniPro.setData({isshow: true})
       }else {
         this.setData({
           tipMessage: info.message
@@ -81,13 +90,15 @@ Page({
   },
   // 点击充值
   handleSubmit(){
-    my.alert({
-      title: '提示',
-      content: JSON.stringify({
-        onlinecardNum: this.data.onlinecardNum,
-        selectTem: this.data.temList[this.data.defaultIndex]
+    const userid= app.globalData.userid
+    pay.call(this,[],()=>(
+      getTradeNoFormScancharge({
+        userid,
+        tempid: this.data.temList[this.data.defaultIndex].id,
+        param: this.data.onlinecardNum,
+        hardversion: '在线卡'
       })
-    });
+    ))
   },
   // 选择模板
   selectTem(item,index){

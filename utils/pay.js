@@ -51,6 +51,7 @@ export default async function (checkList,callback){
         this.isPaying= false
       }
   }catch(err){
+    console.log(err)
     this.setData({
       tipMessage: '支付异常'
     })

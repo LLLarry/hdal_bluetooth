@@ -15,7 +15,7 @@
     <view class="flex-1 text-left"> <text class="font-weight-bold text-primary margin-left-1 recharge-money"> {{ temList[defaultIndex] ? temList[defaultIndex].money.toFixed(2) : '未选择' }}</text>元</view>
   </view>
   <view class="padding-x-3 padding-bottom-2">
-    <button type="primary" onTap="handleSubmit" class="text-size-default">立即充值</button>
+    <button type="primary" onTap="handleSubmit" class="text-size-default" onTap="handleSubmit">立即充值</button>
   </view>
   <!-- 联系电话 -->
   <devide height="30" />

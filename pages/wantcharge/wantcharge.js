@@ -2,7 +2,9 @@ import { checkURL } from '/utils'
 const app= getApp()
 const BASE_URL= app.globalData.BASE_URL
 Page({
-  data: {},
+  data: {
+    cardid: 'A40B13CF' //测试在线卡
+  },
   onLoad() {},
   // 点击扫描二维码
   handleScan(){
@@ -45,5 +47,16 @@ Page({
     my.reLaunch({
       url: '/pages/changepage/chargeport/chargeport'
     })
+  },
+  // 测试在线卡
+  handleChange(e){
+    this.setData({
+      cardid: e.detail.value
+    })
+  },
+  testOnlineCard(){
+    my.reLaunch({
+      url: `/pages/rechargepage/rechargeonlinecard/rechargeonlinecard?cardNumber=${this.data.cardid}`
+    });
   }
 });
