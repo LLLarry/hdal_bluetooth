@@ -1,0 +1,20 @@
+<view class="wolfc">
+  <view class="ad">
+    <navigator>
+      <image class='adimg' src='{{adimg}}' mode='widthFix'></image>
+    </navigator>
+  </view>
+  <view>
+    <view class='connect_device_name'>当前设备：{{deviceName}}</view>
+  </view>
+  <view class='choosemoney'>
+    <view class="title">请选择投币方式</view>
+    <view a:for="{{items}}" class="tr">
+      <view class='btn {{val == item.money ? "active" : ""}}' catchTap='handle' data-id='{{item.id}}' data-value='{{item.remark}}' data-money='{{item.money}}'>{{item.name}}</view>
+    </view>
+  </view>
+  <button a:if="{{merid == 0}}" onTap='Sendincoins' class='addincoins'>模拟投币</button>
+  <button a:if="{{merid != 0}}" onTap='Payincoins' class='payincoins' disabled="{{disabled}}">确认支付</button>
+  <button onTap='Backhome' class='payincoins'>回到首页</button>
+  <view onTap='callPhone' id="connect_phone" style='width: 100%; text-align: left;'>联系商家:<text>{{phonenum}}</text></view>
+</view>

@@ -17,14 +17,16 @@ Page({
     getOptions= options
   },
   onReady(){
-    my.hideBackHome();
-    const code= getOptions.code.substr(0,6)
-    const selectPort= getOptions.code.substr(6)
-      this.setData({
-      code,
-      selectPort
-    })
-    this.handleInit(getOptions.code)
+    setTimeout(() => {
+      my.hideBackHome();
+      const code= getOptions.code.substr(0,6)
+      const selectPort= getOptions.code.substr(6)
+        this.setData({
+        code,
+        selectPort
+      })
+      this.handleInit(getOptions.code)
+    }, 300);
   },
   async handleInit(code){
     try{

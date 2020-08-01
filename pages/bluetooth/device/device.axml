@@ -1,0 +1,6 @@
+<view>
+  <!-- <input class='wolf-input' bindinput='Sendval' type='text' value='{{send_value}}' placeholder='请输入设备编号'></input>
+  <button class='wolf-btn' catchtap='findDevice'>点击连接</button> -->
+  <image src='{{senceimg}}' mode='widthFix'></image>
+  <button class='scanQrcode' catchTap='scanQrcodeConnect'>扫码连接</button>
+</view>

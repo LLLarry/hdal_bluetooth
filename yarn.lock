@@ -7,6 +7,11 @@ mini-ali-ui-rpx@^1.1.2:
   resolved "https://registry.npm.taobao.org/mini-ali-ui-rpx/download/mini-ali-ui-rpx-1.1.2.tgz#ff73b317b728378434c47ef85879ec598f105bb3"
   integrity sha1-/3OzF7coN4Q0xH74WHnsWY8QW7M=
 
+mini-antui@^0.4.35:
+  version "0.4.35"
+  resolved "https://registry.npm.taobao.org/mini-antui/download/mini-antui-0.4.35.tgz#e32d8df1c64ac558f8471db2e46073b20de4dd2c"
+  integrity sha1-4y2N8cZKxVj4Rx2y5GBzsg3k3Sw=
+
 qs@^6.9.4:
   version "6.9.4"
   resolved "https://registry.npm.taobao.org/qs/download/qs-6.9.4.tgz#9090b290d1f91728d3c22e54843ca44aea5ab687"

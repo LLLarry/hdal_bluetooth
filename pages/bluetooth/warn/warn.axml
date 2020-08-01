@@ -1,0 +1,5 @@
+<view class="wolfpage">
+<icon class="wolficon" type="warn" size="45" color="orange"></icon>
+<text class="wolftext">系统检测到您未打开蓝牙，请打开后重新扫码</text>
+<button class='wolfscan' catchTap='scanQrcodeConnect'>已打开蓝牙 重新扫码</button>
+</view>

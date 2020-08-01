@@ -22,7 +22,7 @@ Page({
         code: getOptions.code
       })
       this.handleInit(getOptions.code)
-    });
+    },300);
   },
   // 初始化数据
   async handleInit(code){

@@ -1,6 +1,7 @@
 {
   "dependencies": {
     "mini-ali-ui-rpx": "^1.1.2",
+    "mini-antui": "^0.4.35",
     "qs": "^6.9.4"
   }
 }

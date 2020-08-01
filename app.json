@@ -1,13 +1,8 @@
 {
   "pages": [
-    "pages/my/my",
-    "pages/index/index",
-    "pages/wallet/wallet",
-    "pages/chargelist/chargelist",
-    "pages/chargelistdetail/chargelistdetail",
     "pages/wantcharge/wantcharge",
     "pages/wantcharge/pages/numtocharge/numtocharge",
-    "pages/nowCharge/nowCharge",
+    "pages/wallet/wallet",
     "pages/changepage/chargeport/chargeport",
     "pages/changepage/chargebyport/chargebyport",
     "pages/loading/loading",
@@ -16,7 +11,15 @@
     "pages/rechargepage/rechargeonlinecard/rechargeonlinecard",
     "pages/changepage/chargeerror/chargeerror",
     "pages/changepage/chargenosupport/chargenosupport",
-    "pages/unusualpage/keyerror/keyerror"
+    "pages/unusualpage/keyerror/keyerror",
+    "pages/bluetooth/device/device",
+    "pages/bluetooth/home/home",
+    "pages/bluetooth/error/error",
+    "pages/bluetooth/loading/loading",
+    "pages/bluetooth/loading2/loading2",
+    "pages/bluetooth/incoins/incoins",
+    "pages/bluetooth/ad/ad",
+    "pages/bluetooth/warn/warn"
   ],
   "window": {
     "defaultTitle": "自助充电平台",
@@ -33,18 +36,6 @@
         "name": "我要充电",
         "icon": "assets/tabBar/home.png",
         "activeIcon": "assets/tabBar/home-active.png"
-      },
-      {
-        "pagePath": "pages/nowCharge/nowCharge",
-        "name": "正在充电",
-        "icon": "assets/tabBar/wallet.png",
-        "activeIcon": "assets/tabBar/wallet-active.png"
-      },
-      {
-        "pagePath": "pages/my/my",
-        "name": "我的",
-        "icon": "assets/tabBar/my.png",
-        "activeIcon": "assets/tabBar/my-active.png"
       }
     ]
   }

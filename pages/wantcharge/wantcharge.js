@@ -3,7 +3,7 @@ const app= getApp()
 const BASE_URL= app.globalData.BASE_URL
 Page({
   data: {
-    cardid: 'A40B13CF' //测试在线卡
+    cardid: '' //测试在线卡
   },
   onLoad() {},
   // 点击扫描二维码

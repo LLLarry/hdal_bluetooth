@@ -1,0 +1,33 @@
+page {
+  flex: 1;
+  display: flex;
+  background-color: white;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
+  font-family: "Microsoft YaHei";
+}
+image {
+  width: 100%;
+}
+.wolf-input {
+  margin-top: 50px;
+  border: 1px solid;
+  height: 50px;
+  width: 80%;
+  text-align: center;
+}
+.wolf-btn {
+  width: 80%;
+  margin-top: 10px;
+  background-color: #44b549;
+}
+.scanQrcode {
+  width: 80%;
+  margin: 0 auto;
+  background-color: #1aad19;
+  color: white;
+}

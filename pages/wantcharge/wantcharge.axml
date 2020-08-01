@@ -13,7 +13,7 @@
 
 
      <view class="chargeByInput d-flex justify-content-center" >
-      <input onInput="handleChange" value="A40B13CF"></input>
+      <input onInput="handleChange"></input>
     </view>
 
     <view class="chargeByInput d-flex justify-content-center" >

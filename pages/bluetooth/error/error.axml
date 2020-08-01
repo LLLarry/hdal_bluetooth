@@ -1,0 +1,7 @@
+<view class="tip">
+    <view class="header">
+      <image mode="scaleToFill" src="/assets/bluetooth/image/tip.png"/>
+      <text>支付宝暂时不支持</text>
+      <text>请使用微信扫码</text>
+    </view>
+</view>

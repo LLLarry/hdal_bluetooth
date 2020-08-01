@@ -19,7 +19,6 @@ Page({
   onReady(){
     setTimeout(()=>{
       my.hideBackHome();
-      // this.handleGetCardID(getOptions.code)
       this.setData({
         code: getOptions.code
       })

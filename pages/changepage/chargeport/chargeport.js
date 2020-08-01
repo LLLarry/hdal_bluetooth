@@ -18,12 +18,13 @@ Page({
       getOptions= options;
     },
     onReady(){
-        my.hideBackHome();
-        this.setData({
-          code: getOptions.code
-        })
-        this.handleInit(getOptions.code)
-        
+       setTimeout(() => {
+          my.hideBackHome();
+          this.setData({
+            code: getOptions.code
+          })
+          this.handleInit(getOptions.code)
+       }, 300);
     },
     // 初始化获取数据
     async handleInit(code){

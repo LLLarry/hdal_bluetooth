@@ -8,7 +8,6 @@ Page({
   },
   onLoad(options) {
     getOptions= options
-    
   },
   onReady(){
     setTimeout(()=>{ //在 onReady中加入延时，是为了解决扫码跳转之后出错无法跳出小程序的bug
@@ -31,10 +30,15 @@ Page({
             this.handleInit(checkDevice.code)
          }else if(checkDevice.type === 2){ //跳进设备
             this.handleInit(checkDevice.codeAndPort)
-         }else{ //跳进在线卡
+         }else if(checkDevice.type === 3){ //跳进在线卡
              my.reLaunch({
                 url: `/pages/rechargepage/rechargeonlinecard/rechargeonlinecard?cardNumber=${checkDevice.cardNumber}`
              });
+         }else {
+           my.alert({
+             title: '提示',
+             content: '异常错误！'
+           });
          }
       }else if(checkDevice.status === 201){ //在线卡号/设备号错误
           my.reLaunch({

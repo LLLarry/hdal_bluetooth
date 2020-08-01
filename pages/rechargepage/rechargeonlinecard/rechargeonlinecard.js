@@ -2,6 +2,7 @@ import { getOnlinecardNumData,bindPhone } from '/require/onlinecard-api'
 import { getTradeNoFormScancharge } from '/require/charge-api'
 import pay from '/utils/pay';
 const app= getApp()
+let getOptions= null
 Page({
   data: {
     defaultIndex: 0, //默认索引
@@ -18,11 +19,16 @@ Page({
     cardstatus: 0 //卡状态
   },
   onLoad(options) {
-    my.hideBackHome();
-    this.handleInit(options.cardNumber)
-    this.setData({
-      onlinecardNum:options.cardNumber
-    })
+    getOptions= options
+  },
+  onReady(){
+    setTimeout(()=>{
+      my.hideBackHome();
+      this.handleInit(getOptions.cardNumber)
+      this.setData({
+        onlinecardNum:getOptions.cardNumber
+      })
+    },300)
   },
   // 获取初始化数据
   async handleInit(cardNum){

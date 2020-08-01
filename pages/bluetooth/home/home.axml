@@ -1,0 +1,13 @@
+<!--home.wxml-->
+<view>
+  <view class="userinfo">
+    <button a:if="{{!hasUserInfo}}" onTap="getUserinfo" class="getuserBtn"> 获取头像昵称 </button>
+    <block a:else>
+      <image class="userinfo-avatar" src="{{userInfo.avatar}}"></image>
+      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+    </block>
+  </view>
+  <view class="usermotto">
+    <text class="user-motto">{{motto}}</text>
+  </view>
+</view>

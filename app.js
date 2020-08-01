@@ -1,4 +1,5 @@
 import { getUserid } from '/require/home'
+const updateManager = my.getUpdateManager()
 App({
   globalData: {
      userid: '', //用户id
@@ -6,44 +7,21 @@ App({
      BASE_URL: 'http://www.tengfuchong.com.cn', //扫码二维码基础路径
   },
   onLaunch(options) {
-    // if(options.scene === 1011){ //扫码进来的
-    //     this.globalData.query= JSON.stringify(options.query)
-    // }
-     this.globalData.query= JSON.stringify({qrCode: "http://www.tengfuchong.com.cn/oauth2pay?code=0000011"})
+    this.handleUpdate()
+    if(options.scene == '1011'){ //扫码进来的
+        const bluetooth_baseurl= 'https://www.tengfuchong.cn/applet/'
+        if(options.query && options.query.qrCode.indexOf(bluetooth_baseurl) != -1){
+          my.setStorageSync({
+            key: 'scanUrl', // 缓存数据的key
+            data: options.query.qrCode, // 要缓存的数据
+          });
+        }else{
+          this.globalData.query= JSON.stringify(options.query)
+        }
+    }
+    //  this.globalData.query= JSON.stringify({qrCode: "http://www.tengfuchong.com.cn/oauth2pay?code=0000011"})
     //  this.globalData.query= JSON.stringify({qrCode: "http://www.tengfuchong.com.cn/oauth2online?cardNumber=0Baa4f31"})
     this.handleGetUserId()
-  },
-  onShow(options) {
-    // 从后台被 scheme 重新打开
-    // options.query == {number:1}{
-      //   "pagePath": "pages/nowCharge/nowCharge",
-      //   "name": "正在充电",
-      //   "icon": "assets/tabBar/wallet.png",
-      //   "activeIcon": "assets/tabBar/wallet-active.png"
-      // },
-      // {
-      //   "pagePath": "pages/my/my",
-      //   "name": "我的",
-      //   "icon": "assets/tabBar/my.png",
-      //   "activeIcon": "assets/tabBar/my-active.png"
-      // }
-
-    // "pages/my/my",
-    // "pages/index/index",
-    // "pages/wallet/wallet",
-    // "pages/chargelist/chargelist",
-    // "pages/chargelistdetail/chargelistdetail",
-    // "pages/wantcharge/wantcharge",
-    // "pages/wantcharge/pages/numtocharge/numtocharge",
-    // "pages/nowCharge/nowCharge",
-    // "pages/changepage/chargeport/chargeport",
-    // "pages/changepage/chargebyport/chargebyport",
-    // "pages/loading/loading",
-    // "pages/changepage/chargeicon/chargeicon",
-    // "pages/rechargepage/rechargeoffline/rechargeoffline",
-    // "pages/rechargepage/rechargeonlinecard/rechargeonlinecard",
-    // "pages/changepage/chargeerror/chargeerror",
-    // "pages/changepage/chargenosupport/chargenosupport"
   },
   handleGetUserId(){
     my.getAuthCode({
@@ -55,5 +33,20 @@ App({
         }
       },
     });
+  },
+  handleUpdate(){
+    updateManager.onUpdateReady(function () {
+      my.confirm({
+        title: '更新提示',
+        content: '新版本已经准备好，是否重启应用？',
+        success: function (res) {
+          if (res.confirm) {
+            // 新的版本已经下载好，调用 applyUpdate 应用新版本并重启
+            updateManager.applyUpdate()
+          }
+        }
+      })
+    })
+
   }
 });
