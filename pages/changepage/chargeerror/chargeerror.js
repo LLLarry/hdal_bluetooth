@@ -15,7 +15,6 @@ Page({
     this.setData({
       code: options.code,
       statuscode: options.statuscode,
-      statuscode: options.statuscode,
       res_info: options.result === 'undefined' ? {} : JSON.parse(options.result)
     })
   },
