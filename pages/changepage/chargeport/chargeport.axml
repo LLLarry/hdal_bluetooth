@@ -44,8 +44,7 @@
      <!-- 支付方式 -->
       <charge-paytype ifwallet="{{result.ifwallet}}" paytype="{{paytype}}" />
      <!-- 温馨提示 -->
-      <charge-tip />
-      <!-- </view> -->
+      <!-- <charge-tip /> -->
     </view>
   </charge-popup>
   <charge-popup chargeInfoShow="{{chargeInfoShow}}" >

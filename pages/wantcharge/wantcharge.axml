@@ -12,12 +12,12 @@
     </view>
 
 
-     <view class="chargeByInput d-flex justify-content-center" >
+     <!-- <view class="chargeByInput d-flex justify-content-center" >
       <input onInput="handleChange"></input>
     </view>
 
     <view class="chargeByInput d-flex justify-content-center" >
       <view class="charge-btn bg-primary d-flex align-items-center justify-content-center text-white text-bold" onTap="testOnlineCard">充值在线卡</view>
-    </view>
+    </view> -->
   </view>
 </view>

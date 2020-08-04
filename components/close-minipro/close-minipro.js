@@ -15,5 +15,10 @@ Component({
     //     isshow: flag
     //   })
     // }
+    handleRedirectHome(){
+      my.redirectTo({
+        url: "/pages/wantcharge/wantcharge"
+      });
+    }
   },
 });

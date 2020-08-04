@@ -30,6 +30,10 @@ Page({
       my.reLaunch({
         url: `/pages/loading/loading?code=${resObj.codeAndPort}`
       });
+    }else if(resObj.status === 200 && resObj.type === 4){ //蓝牙设备
+      my.reLaunch({
+        url: `/pages/loading/loading?code=${resObj.code}&port=${resObj.port}&type=4`
+      });
     }else{
       my.alert({
         title: '提示',
@@ -49,14 +53,14 @@ Page({
     })
   },
   // 测试在线卡
-  handleChange(e){
-    this.setData({
-      cardid: e.detail.value
-    })
-  },
-  testOnlineCard(){
-    my.reLaunch({
-      url: `/pages/rechargepage/rechargeonlinecard/rechargeonlinecard?cardNumber=${this.data.cardid}`
-    });
-  }
+  // handleChange(e){
+  //   this.setData({
+  //     cardid: e.detail.value
+  //   })
+  // },
+  // testOnlineCard(){
+  //   my.reLaunch({
+  //     url: `/pages/rechargepage/rechargeonlinecard/rechargeonlinecard?cardNumber=${this.data.cardid}`
+  //   });
+  // }
 });

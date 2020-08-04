@@ -13,7 +13,11 @@ Page({
     setTimeout(()=>{ //在 onReady中加入延时，是为了解决扫码跳转之后出错无法跳出小程序的bug
       my.hideBackHome();
       if(getOptions.code){ //从里面输入设备号进来
-        this.handleInit(getOptions.code)
+        if(getOptions.type == 4){
+          this.handleGoBlueTooth(getOptions)
+        }else{
+          this.handleInit(getOptions.code)
+        }
       }else{ //从外面扫码进来
         this.handleReturnVal()
       }
@@ -53,7 +57,6 @@ Page({
   },
   //初始化数据
   async handleInit(code){
-    console.log(code)
     try{
        let info= await getHardversionByCode({code})
        let url= ''
@@ -80,6 +83,25 @@ Page({
     }catch(e){
       this.toggleCloseMiniPro(true)
     }
+  },
+  // 跳进蓝牙loading
+  handleGoBlueTooth({code,port}){
+    let systemType= '2'
+    my.getSystemInfo({
+      success: (res) => {
+        if (res.platform == "iOS") {
+            systemType= '1'
+        }else if (res.platform == "Android") {
+            systemType= '2'
+        }
+        my.reLaunch({
+          url: `/pages/bluetooth/loading2/loading2?deviceCode=${code}&port=${port}&systemType=${systemType}`
+        })
+      },
+      fail: (res) => {
+        this.toggleCloseMiniPro(true)
+      }
+    })
   },
   // 切换关闭小程序弹框
   toggleCloseMiniPro(flag){  // true 显示关闭小程序，false隐藏关闭小程序

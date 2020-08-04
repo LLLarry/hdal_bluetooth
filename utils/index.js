@@ -38,6 +38,17 @@ export const checkURL= (base_url,url)=>{
         }
     }
   }
+  const bluetooth_reg= new RegExp('https://www.tengfuchong.cn/applet/\(\\d+\)','i')
+  if(bluetooth_reg.test(url)){ //检测蓝牙设备二维码地址
+     const regexp= /^\d{7,8}$/
+     const code= url.match(bluetooth_reg)[1] != void 0 ? url.match(bluetooth_reg)[1] : ''
+     return {
+      status: regexp.test(code) ? 200 : 201,
+      type: 4,
+      code: code.substr(0,6),
+      port: code.substring(6)
+    }
+  }
    return{
     status: 400, //地址不匹配
     ...c_data
