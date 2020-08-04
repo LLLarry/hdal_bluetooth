@@ -28,12 +28,14 @@ export const checkURL= (base_url,url)=>{
     }
   ]
   for(let {path,regexp,key} of checkState){
-    if(c_url.includes(base_url+path)){
-      return {
-        status: regexp.test(c_data[key]) ? 200 : 201, //200检验成功,201、设备号或在线卡检验不通过
-        type: key === 'code' ? 1 : key === 'codeAndPort' ? 2 : key === 'cardNumber' ? 3 : 0, // 1扫设备号、2扫端口号、3扫在线卡
-        ...c_data
-      }
+      const url1= `${base_url}.cn${path}`
+      const url2= `${base_url}.com.cn${path}`
+      if(c_url.includes(url1) || c_url.includes(url2)){
+        return {
+          status: regexp.test(c_data[key]) ? 200 : 201, //200检验成功,201、设备号或在线卡检验不通过
+          type: key === 'code' ? 1 : key === 'codeAndPort' ? 2 : key === 'cardNumber' ? 3 : 0, // 1扫设备号、2扫端口号、3扫在线卡
+          ...c_data
+        }
     }
   }
    return{

@@ -8,7 +8,8 @@
  import Qs from 'qs'
 // const BASE_URL= 'http://localhost/'
 // const BASE_URL= 'http://192.168.3.45'
-const BASE_URL= 'http://tengfuchong.com.cn'
+// const BASE_URL= 'http://tengfuchong.com.cn' //测试服务器后台域名
+const BASE_URL= 'https://www.tengfuchong.cn' //正式服务器后台域名
 export default ({url="",method="post",data={},loadText="加载中...",hideLoading=false})=>{
   return new Promise((resolve,reject)=>{
       if(!hideLoading){
