@@ -1,8 +1,8 @@
+import { compatibleCloseMiniPro } from './index'
 /**
  * @param {Array} checkList 待检验数据，成功执行下面，否则弹框 （必填）
  * @param {Function} callback 回调函数，目的时获取支付宝订单号 （必填）
  */
-
 export default async function (checkList,callback){
   try{
     if(this.isPaying) return //不能重复提交
@@ -24,10 +24,11 @@ export default async function (checkList,callback){
           tradeNO: info.trade_no,
           success: (res) => {
             if(res.resultCode == 9000){
-                this.setData({
-                  tipMessage: '支付成功'
-                })
-                this.closeMiniPro.setData({isshow: true})
+                // this.setData({
+                //   tipMessage: '支付成功'
+                // })
+                // this.closeMiniPro.setData({isshow: true})
+                compatibleCloseMiniPro.call(this,'支付成功','success')
             }else if(res.resultCode == 6001){
               my.alert({
                 title: '提示',
@@ -37,10 +38,11 @@ export default async function (checkList,callback){
             }
           },
           fail: (res) => {
-            this.setData({
-              tipMessage: '调用失败'
-            })
-            this.closeMiniPro.setData({isshow: true});
+            // this.setData({
+            //   tipMessage: '调用失败'
+            // })
+            // this.closeMiniPro.setData({isshow: true});
+            compatibleCloseMiniPro.call(this,'调用失败')
           }
         });
       }else{
@@ -52,9 +54,10 @@ export default async function (checkList,callback){
       }
   }catch(err){
     console.log(err)
-    this.setData({
-      tipMessage: '支付异常'
-    })
-    this.closeMiniPro.setData({isshow: true})
+    // this.setData({
+    //   tipMessage: '支付异常'
+    // })
+    // this.closeMiniPro.setData({isshow: true})
+    compatibleCloseMiniPro.call(this,'支付异常')
   }
 }

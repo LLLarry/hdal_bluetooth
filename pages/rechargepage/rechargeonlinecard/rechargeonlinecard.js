@@ -1,5 +1,6 @@
 import { getOnlinecardNumData,bindPhone } from '/require/onlinecard-api'
 import { getTradeNoFormScancharge } from '/require/charge-api'
+import { compatibleCloseMiniPro,asyGetUserId } from '/utils/index'
 import pay from '/utils/pay';
 const app= getApp()
 let getOptions= null
@@ -53,21 +54,24 @@ Page({
           })
         }
       }else if(info.code === 2010){ //在线卡绑定手机号
-          this.setData({
-            tipMessage: info.message
-          })
-          this.closeMiniPro.setData({isshow: true})
+          // this.setData({
+          //   tipMessage: info.message
+          // })
+          // this.closeMiniPro.setData({isshow: true})
+          compatibleCloseMiniPro.call(this,info.message)
       }else {
-        this.setData({
-          tipMessage: info.message
-        })
-        this.closeMiniPro.setData({isshow: true})
+        // this.setData({
+        //   tipMessage: info.message
+        // })
+        // this.closeMiniPro.setData({isshow: true})
+        compatibleCloseMiniPro.call(this,info.message)
       }
     } catch (error) {
-      this.setData({
-          tipMessage: '异常错误'
-        })
-      this.closeMiniPro.setData({isshow: true})
+      // this.setData({
+      //     tipMessage: '异常错误'
+      //   })
+      // this.closeMiniPro.setData({isshow: true})
+      compatibleCloseMiniPro.call(this,'异常错误')
     }
   },
   //在线卡绑定手机号
@@ -81,23 +85,42 @@ Page({
       success: async (result) => {
         if(result.ok){
           let info= await bindPhone({uid: this.data.carduid,phone: result.inputValue})
-          this.setData({
-            tipMessage: info.code === 200 ? '绑定成功' : '绑定失败'
-          })
-          this.closeMiniPro.setData({isshow: true})
+          // this.setData({
+          //   tipMessage: info.code === 200 ? '绑定成功' : '绑定失败'
+          // })
+          // this.closeMiniPro.setData({isshow: true})
+          compatibleCloseMiniPro.call(this,info.code === 200 ? '绑定成功' : '绑定失败')
         }else{
-          this.setData({
-              tipMessage: '关闭此页面'
-          })
-          this.closeMiniPro.setData({isshow: true})
+          // this.setData({
+          //     tipMessage: '关闭此页面'
+          // })
+          // this.closeMiniPro.setData({isshow: true})
+          compatibleCloseMiniPro.call(this,'关闭此页面')
         }
       },
     });
   },
   // 点击充值
-  handleSubmit(){
-    const userid= app.globalData.userid
-    pay.call(this,[],()=>(
+  async handleSubmit(){
+    let userid= app.globalData.userid
+    if(!userid){
+      userid= await asyGetUserId(app)
+    }
+    const checkList= [
+      {
+        check: !!userid,
+        content: '为获取到用户id',
+      },
+      {
+        check: this.data.temList.length > 0,
+        content: '模板数据为空',
+      },
+      {
+        check: !!this.data.onlinecardNum,
+        content: '未获取到在线卡号',
+      },
+    ]
+    pay.call(this,checkList,()=>(
       getTradeNoFormScancharge({
         userid,
         tempid: this.data.temList[this.data.defaultIndex].id,

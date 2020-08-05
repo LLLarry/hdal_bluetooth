@@ -1,6 +1,6 @@
 import Qs from 'qs'
+import { getUserid } from '/require/home'
 /**
- * 
  * @param {string} base_url //扫码基础路径，在app.js中配置的全局变量
  * @param {string} url //要检测的地址
  * 返回值 {object} status：400 检验地址不通过，201 检验在线卡/设备号不通过 200是校验成功
@@ -30,7 +30,7 @@ export const checkURL= (base_url,url)=>{
   for(let {path,regexp,key} of checkState){
       const url1= `${base_url}.cn${path}`
       const url2= `${base_url}.com.cn${path}`
-      if(c_url.includes(url1) || c_url.includes(url2)){
+      if((c_url.indexOf(url1) != -1) || (c_url.indexOf(url2) != -1)){
         return {
           status: regexp.test(c_data[key]) ? 200 : 201, //200检验成功,201、设备号或在线卡检验不通过
           type: key === 'code' ? 1 : key === 'codeAndPort' ? 2 : key === 'cardNumber' ? 3 : 0, // 1扫设备号、2扫端口号、3扫在线卡
@@ -77,4 +77,54 @@ export const checkURL= (base_url,url)=>{
   //      ...c_data
   //   }
   // }
+}
+
+/**
+ * 兼容低版本浏览器不支持ref获取组件的问题
+ * @param {string} tipMessage 提示信息
+ * @param {string} type showToast提示类型
+ */ 
+export const compatibleCloseMiniPro= function(tipMessage,type='fail'){
+  if(this && this.closeMiniPro){
+    if(tipMessage){
+      this.setData({
+        tipMessage
+      })
+    }
+    this.closeMiniPro.setData({isshow: true})
+  }else{
+    my.showToast({
+      type,
+      content: tipMessage || '异常错误',
+      duration: 2000,
+      success: () => {
+        my.reLaunch({
+          url: "/pages/wantcharge/wantcharge"
+        });
+      },
+    });
+  }
+}
+
+/**
+ * 获取用户id
+ */
+export const asyGetUserId= function(app){
+  return new Promise((resolve,reject)=>{
+    my.getAuthCode({
+      scopes: ['auth_base'],
+      success: async (res) => {
+        try{
+          let info= await getUserid({authCode: res.authCode})
+          if(info.code == 200){
+            app.globalData.userid= info.userid
+          }
+          resolve(info.userid)
+        }catch(err){
+          reject(err)
+        }
+      },
+    });
+  })
+  
 }

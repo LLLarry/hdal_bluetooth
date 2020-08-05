@@ -1,4 +1,4 @@
-import { getUserid } from '/require/home'
+import { asyGetUserId } from '/utils/index'
 const updateManager = my.getUpdateManager()
 App({
   globalData: {
@@ -23,16 +23,8 @@ App({
     //  this.globalData.query= JSON.stringify({qrCode: "http://www.tengfuchong.com.cn/oauth2online?cardNumber=0Baa4f31"})
     this.handleGetUserId()
   },
-  handleGetUserId(){
-    my.getAuthCode({
-      scopes: ['auth_base'],
-      success: async (res) => {
-        let info= await getUserid({authCode: res.authCode})
-        if(info.code === 200){
-          this.globalData.userid= info.userid
-        }
-      },
-    });
+  async handleGetUserId(){
+    await asyGetUserId(this)
   },
   handleUpdate(){
     updateManager.onUpdateReady(function () {

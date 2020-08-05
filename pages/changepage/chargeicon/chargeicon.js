@@ -1,4 +1,5 @@
 import { deviceCharge,getTradeNoFormScancharge } from '/require/charge-api'
+import { compatibleCloseMiniPro,asyGetUserId } from '/utils/index'
 import pay from '/utils/pay'
 const app= getApp()
 let getOptions= null
@@ -17,12 +18,12 @@ Page({
   },
   onReady(){
     setTimeout(() => {
-      my.hideBackHome();
+      // my.hideBackHome();
       this.setData({
         code: getOptions.code
       })
       this.handleInit(getOptions.code)
-    },300);
+    });
   },
   // 初始化数据
   async handleInit(code){
@@ -42,10 +43,12 @@ Page({
           })
         }
       }else{ //失败
-         this.closeMiniPro.setData({isshow: true})
+        //  this.closeMiniPro.setData({isshow: true})
+        compatibleCloseMiniPro.call(this)
       }
     }catch(e){ //出错
-      this.closeMiniPro.setData({isshow: true})
+      // this.closeMiniPro.setData({isshow: true})
+      compatibleCloseMiniPro.call(this)
     }
   },
   //设置支付方式
@@ -62,8 +65,11 @@ Page({
     })
   },
   // 点击开始充电
-  handleSubmit(){
-    const userid=  app.globalData.userid
+  async handleSubmit(){
+    let userid=  app.globalData.userid
+    if(!userid){
+      userid= await asyGetUserId(app)
+    }
     const checkList= [
         {
           check: !!userid,

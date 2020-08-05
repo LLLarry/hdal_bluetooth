@@ -1,4 +1,5 @@
 import { deviceCharge,getTradeNoFormScancharge,getPortStatus } from '/require/charge-api'
+import { compatibleCloseMiniPro,asyGetUserId } from '/utils/index'
 import pay from '/utils/pay'
 const app= getApp()
 let getOptions= null
@@ -19,12 +20,12 @@ Page({
     },
     onReady(){
        setTimeout(() => {
-          my.hideBackHome();
+          // my.hideBackHome();
           this.setData({
             code: getOptions.code
           })
           this.handleInit(getOptions.code)
-       }, 300);
+       });
     },
     // 初始化获取数据
     async handleInit(code){
@@ -43,10 +44,12 @@ Page({
           }
           this.handleChangePortStatus() //查询端口状态
         }else{
-          this.closeMiniPro.setData({isshow: true})
+          // this.closeMiniPro.setData({isshow: true})
+          compatibleCloseMiniPro.call(this)
         }
       }catch(e){
-        this.closeMiniPro.setData({isshow: true})
+        // this.closeMiniPro.setData({isshow: true})
+        compatibleCloseMiniPro.call(this)
       }
     },
     // 修改端口状态
@@ -54,10 +57,11 @@ Page({
       try{
          let poststatus= await getPortStatus({code: this.data.code,nowtime: this.data.result.nowtime})
          if(poststatus.state === 'error'){
-            this.setData({
-              tipMessage: '连接失败，请确认设备是否在线'
-            })
-            this.closeMiniPro.setData({isshow: true})
+            // this.setData({
+            //   tipMessage: '连接失败，请确认设备是否在线'
+            // })
+            // this.closeMiniPro.setData({isshow: true})
+            compatibleCloseMiniPro.call(this,'连接失败，请确认设备是否在线')
          }else{
            const portList= this.data.result.portList
            for(let key in poststatus){
@@ -80,10 +84,11 @@ Page({
            }
          }
       }catch(err){
-        this.setData({
-          tipMessage: '端口状态获取出错'
-        })
-        this.closeMiniPro.setData({isshow: true})
+        // this.setData({
+        //   tipMessage: '端口状态获取出错'
+        // })
+        // this.closeMiniPro.setData({isshow: true})
+        compatibleCloseMiniPro.call(this,'端口状态获取出错')
       }
     },
     // 关掉支付方式弹出层
@@ -128,8 +133,11 @@ Page({
       this.closeMiniPro= ref
     },
    // 点击开始充电按钮
-    handleSubmit(){
-      const userid= app.globalData.userid
+    async handleSubmit(){
+      let userid= app.globalData.userid
+      if(!userid){
+        userid= await asyGetUserId(app)
+      }
       const checkList= [
         {
           check: !!userid,

@@ -1,4 +1,5 @@
 import { deviceCharge,getOfflinedeviceToCradID,getTradeNoFormScancharge } from '/require/charge-api'
+import { compatibleCloseMiniPro,asyGetUserId } from '/utils/index'
 import pay from '/utils/pay';
 const app= getApp()
 let getOptions= null
@@ -36,23 +37,26 @@ Page({
         })
         // this.handleInit(code)
       }else if(info.result == 2){
-          this.setData({
-            tipMessage: '未获取到离线卡'
-          })
-          return this.closeMiniPro.setData({isshow: true})
+          // this.setData({
+          //   tipMessage: '未获取到离线卡'
+          // })
+          // return this.closeMiniPro.setData({isshow: true})
+          compatibleCloseMiniPro.call(this,'未获取到离线卡')
       }else{ //获取失败
-          this.setData({
-            tipMessage: info.errinfo
-          })
-          return this.closeMiniPro.setData({isshow: true})
+          // this.setData({
+          //   tipMessage: info.errinfo
+          // })
+          // return this.closeMiniPro.setData({isshow: true})
+          compatibleCloseMiniPro.call(this,info.errinfo)
       }
       my.hideLoading()
     }catch(err){
-       my.hideLoading()
-        this.setData({
-          tipMessage: '异常出错'
-        })
-        return this.closeMiniPro.setData({isshow: true})
+      //  my.hideLoading()
+      //   this.setData({
+      //     tipMessage: '异常出错'
+      //   })
+      //   return this.closeMiniPro.setData({isshow: true})
+      return compatibleCloseMiniPro.call(this,'异常出错')
     }
   },
   // 初始化数据
@@ -74,10 +78,12 @@ Page({
         }
         this.handleGetCardID(this.data.code)
       }else{ //失败
-         this.closeMiniPro.setData({isshow: true})
+        //  this.closeMiniPro.setData({isshow: true})
+        compatibleCloseMiniPro.call(this)
       }
     }catch(e){ //出错
-      this.closeMiniPro.setData({isshow: true})
+      // this.closeMiniPro.setData({isshow: true})
+      compatibleCloseMiniPro.call(this)
     }
   },
   // 选择模板
@@ -91,8 +97,11 @@ Page({
      this.closeMiniPro= ref
   },
   // 开始充值
-  handleSubmit(){
-    const userid= app.globalData.userid
+  async handleSubmit(){
+    let userid= app.globalData.userid
+    if(!userid){
+      userid= await asyGetUserId(app)
+    }
     const checkList= [
       {
         check: !!userid,

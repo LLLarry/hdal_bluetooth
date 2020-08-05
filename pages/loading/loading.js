@@ -1,4 +1,5 @@
 import { getHardversionByCode } from '/require/charge-api'
+import { compatibleCloseMiniPro } from '/utils/index'
 import { checkURL } from '/utils'
 const app= getApp()
 let getOptions= null
@@ -11,9 +12,9 @@ Page({
   },
   onReady(){
     setTimeout(()=>{ //在 onReady中加入延时，是为了解决扫码跳转之后出错无法跳出小程序的bug
-      my.hideBackHome();
+      // my.hideBackHome();
       if(getOptions.code){ //从里面输入设备号进来
-        if(getOptions.type == 4){
+        if(getOptions.type == 4){ //跳进蓝牙设备loading
           this.handleGoBlueTooth(getOptions)
         }else{
           this.handleInit(getOptions.code)
@@ -21,7 +22,7 @@ Page({
       }else{ //从外面扫码进来
         this.handleReturnVal()
       }
-    },300)
+    })
   },
   // 处理初始化返回值（扫码跳进来）
   handleReturnVal(){
@@ -61,14 +62,18 @@ Page({
        let info= await getHardversionByCode({code})
        let url= ''
        if(info.code === 200){
-         if( ['00','01','02','05','06','07'].includes(info.hardversion) ) { //扫描设备号，或在小程序内部输入设备号进去充电
+         if( ['00','01','02','05','06','07'].indexOf(info.hardversion) != -1 ) { //扫描设备号，或在小程序内部输入设备号进去充电
            url= `/pages/changepage/chargeport/chargeport?code=${info.equipmentnum}`
            if(typeof info.port !== 'undefined'){ //扫描端口号进来
              url= `/pages/changepage/chargebyport/chargebyport?code=${code}`
            }
-         }else if( ['03'].includes(info.hardversion) ) { //扫描设备号，或在小程序内部输入设备号进去充电 (脉冲)
-           url= `/pages/changepage/chargeicon/chargeicon?code=${info.equipmentnum}`
-         }else if( ['04'].includes(info.hardversion) ) { //扫描设备号，或在小程序内部输入设备号进去充电 （离线充值机）
+         }else if( ['03'].indexOf(info.hardversion) != -1 ) { //扫描设备号，或在小程序内部输入设备号进去充电 (脉冲)
+           if(info.devicetype != 2){ //普通03设备
+             url= `/pages/changepage/chargeicon/chargeicon?code=${info.equipmentnum}`
+           }else{ //蓝牙03设备
+              this.handleGoBlueTooth({code,port:'1'}) //蓝牙默认端口为1
+           }
+         }else if( ['04'].indexOf(info.hardversion) != -1 ) { //扫描设备号，或在小程序内部输入设备号进去充电 （离线充值机）
            url= `/pages/rechargepage/rechargeoffline/rechargeoffline?code=${info.equipmentnum}`
          }else{ //拦截 暂不支持的设备
            url= `/pages/changepage/chargenosupport/chargenosupport`
@@ -108,7 +113,7 @@ Page({
     this.setData({
       isClodeMiniPro: flag
     })
-    this.closeMiniPro.setData({
+    this.closeMiniPro && this.closeMiniPro.setData({
       isshow: flag
     })
   },
