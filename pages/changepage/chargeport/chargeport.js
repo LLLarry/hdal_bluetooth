@@ -148,7 +148,7 @@ Page({
           content: '未选择端口号'
         },
         {
-          check: this.data.result.templatelist.length > 0,
+          check: this.data.result && this.data.result.templatelist.length > 0,
           content: '模板数据为空'
         }
       ]

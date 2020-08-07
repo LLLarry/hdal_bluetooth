@@ -8,6 +8,7 @@ App({
   },
   onLaunch(options) {
     this.handleUpdate()
+    this.handleGetUserId()
     if(options.scene == '1011'){ //扫码进来的
         const bluetooth_baseurl= 'https://www.tengfuchong.cn/applet/'
         if(options.query && options.query.qrCode.indexOf(bluetooth_baseurl) != -1){
@@ -21,7 +22,6 @@ App({
     }
     //  this.globalData.query= JSON.stringify({qrCode: "http://www.tengfuchong.com.cn/oauth2pay?code=0000011"})
     //  this.globalData.query= JSON.stringify({qrCode: "http://www.tengfuchong.com.cn/oauth2online?cardNumber=0Baa4f31"})
-    this.handleGetUserId()
   },
   async handleGetUserId(){
     await asyGetUserId(this)

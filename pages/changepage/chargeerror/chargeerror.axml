@@ -3,7 +3,7 @@
   <page-result
   type="error"
   title="异常错误"
-  brief="{{ statuscode == '2001' ? '设备离线' :  statuscode == '2002' ? '设备未绑定' : statuscode == '2003' ? '设备已到期' : statuscode == '2004' ? '设备号不正确' :  '异常'}}"
+  brief="{{ statuscode == '2001' ? '设备离线' :  statuscode == '2002' ? '设备未绑定' : statuscode == '2003' ? '设备已到期' : statuscode == '2004' ? '设备号不正确' : statuscode == '2012' ? '暂不支持支付宝充电' : statuscode == '2013' ? '不支持支付宝充电' : '异常'}}"
   local="{{true}}"
   />
   <devide height="30" />
@@ -37,7 +37,7 @@
       </view>
     </view>
   <!-- 解决办法 -->
-    <view class="res-wrapper result-wrapper" a:if="{{ statuscode == '2002' || statuscode == '2003' || statuscode == '2004'}}">
+    <view class="res-wrapper result-wrapper" a:if="{{ statuscode == '2002' || statuscode == '2003' || statuscode == '2004' || statuscode == '2012' || statuscode == '2013'}}">
       <view class="text-size-default margin-bottom-2">解决办法</view>
       <view class="wrapper-item d-flex padding-y-1 text-size-md text-333" a:for="{{ resove_type[statuscode] }}" a:key="{{index}}">
         <text>{{index+1}}、{{ item }}</text>
