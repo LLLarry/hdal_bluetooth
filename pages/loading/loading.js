@@ -68,7 +68,7 @@ Page({
              url= `/pages/changepage/chargebyport/chargebyport?code=${code}`
            }
          }else if( ['03'].indexOf(info.hardversion) != -1 ) { //扫描设备号，或在小程序内部输入设备号进去充电 (脉冲)
-           if(info.devicetype != 2){ //普通03设备
+           if(info.deviceType != 2){ //普通03设备
              url= `/pages/changepage/chargeicon/chargeicon?code=${info.equipmentnum}`
            }else{ //蓝牙03设备
               this.handleGoBlueTooth({code,port:'1'}) //蓝牙默认端口为1
