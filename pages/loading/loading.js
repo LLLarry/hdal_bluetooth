@@ -80,7 +80,11 @@ Page({
          }
         
        }else{ // 查询失败 / 设备离线 / 设备过期 / 设备IMEI号过期 / 设备未绑定
-          url= `/pages/changepage/chargeerror/chargeerror?code=${info.equipmentnum}&statuscode=${info.code}&result=${JSON.stringify(info.res_data)}`
+           if(['08'].indexOf(info.hardversion) != -1 ){
+              url= `/pages/changepage/chargenosupport/chargenosupport`
+           }else{
+             url= `/pages/changepage/chargeerror/chargeerror?code=${info.equipmentnum}&statuscode=${info.code}&result=${JSON.stringify(info.res_data)}`
+           }
        }
       my.reLaunch({
         url
