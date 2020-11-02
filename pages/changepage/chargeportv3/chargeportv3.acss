@@ -1,0 +1,13 @@
+page {
+  background-color: #fff;
+}
+.contral-tip {
+  margin-top: 15rpx;
+  color: rgb(16, 142, 233);
+  font-size: 28rpx;
+  line-height: 1.6;
+}
+
+.contral-tip-strong {
+  font-weight: 700;
+}

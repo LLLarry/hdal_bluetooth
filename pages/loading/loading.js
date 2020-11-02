@@ -1,5 +1,5 @@
 import { getHardversionByCode } from '/require/charge-api'
-import { compatibleCloseMiniPro } from '/utils/index'
+// import { compatibleCloseMiniPro } from '/utils/index'
 import { checkURL } from '/utils'
 const app= getApp()
 let getOptions= null
@@ -75,16 +75,22 @@ Page({
            }
          }else if( ['04'].indexOf(info.hardversion) != -1 ) { //扫描设备号，或在小程序内部输入设备号进去充电 （离线充值机）
            url= `/pages/rechargepage/rechargeoffline/rechargeoffline?code=${info.equipmentnum}`
+         }else if( ['08','09','10'].indexOf(info.hardversion) != -1 ) { //扫描设备号，V3设备
+           url= `/pages/changepage/chargeportv3/chargeportv3?code=${info.equipmentnum}`
+           if(typeof info.port !== 'undefined'){ //扫描端口号进来
+             url= `/pages/changepage/chargebyportv3/chargebyportv3?code=${code}`
+           }
          }else{ //拦截 暂不支持的设备
            url= `/pages/changepage/chargenosupport/chargenosupport`
          }
         
        }else{ // 查询失败 / 设备离线 / 设备过期 / 设备IMEI号过期 / 设备未绑定
-           if(['08'].indexOf(info.hardversion) != -1 ){
-              url= `/pages/changepage/chargenosupport/chargenosupport`
-           }else{
-             url= `/pages/changepage/chargeerror/chargeerror?code=${info.equipmentnum}&statuscode=${info.code}&result=${JSON.stringify(info.res_data)}`
-           }
+          url= `/pages/changepage/chargeerror/chargeerror?code=${info.equipmentnum}&statuscode=${info.code}&result=${JSON.stringify(info.res_data)}`
+          //  if(['08'].indexOf(info.hardversion) != -1 ){
+          //     url= `/pages/changepage/chargenosupport/chargenosupport`
+          //  }else{
+          //    url= `/pages/changepage/chargeerror/chargeerror?code=${info.equipmentnum}&statuscode=${info.code}&result=${JSON.stringify(info.res_data)}`
+          //  }
        }
       my.reLaunch({
         url

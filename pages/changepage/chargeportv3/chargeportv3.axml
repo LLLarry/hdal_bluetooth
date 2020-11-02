@@ -1,0 +1,42 @@
+<view>
+  <!-- 顶部header部分 -->
+  <charge-header code="{{code}}" equname="{{result.equipmentname}}"  phonenum="{{result.phonenum}}"  />
+  <!-- 中间main部分 -->
+  <view class="main padding-3">
+    <!-- 展示端口号 -->
+    <charge-port portList="{{result.portList}}" selectPort="{{selectPort}}" />
+  </view>
+  <!-- <navigator open-type="exit" target="miniProgram">Navigate</navigator> -->
+  <!-- 底部  -->
+  <charge-footer templatelist="{{result.templatelist}}" defaultIndex="{{defaultIndex}}" />
+
+  <charge-popup paytypeShow="{{paytypeShow}}" >
+    <view class="contral bg-white padding-x-3 padding-top-3">
+    <!-- 顶部标题 -->
+      <view class="contral-title d-flex justify-content-between margin-bottom-3">
+        <text>请选择充电金额</text>
+        <text class="text-size-md text-666">已选择充电插座： <text class="text-size-default text-primary">{{selectPort}}</text>号</text>
+      </view>
+      <!--充电模板选择 -->
+      <charge-tem templatelist="{{result.templatelist}}" defaultIndex="{{defaultIndex}}" />
+      
+     <!-- 支付方式 -->
+      <charge-paytype ifwallet="{{result.ifwallet}}" paytype="{{paytype}}" />
+     <!-- 温馨提示 -->
+
+     <!-- v3设备提示临时充电开始 -->
+     <view class="contral-tip">
+       <text class="contral-tip-strong">注：</text> 1、此设备在支付宝中充电方式仅支持“临时充电”（即为“按金额付费”）2、支付宝充电不支持部分退费，如需部分退费，请使用微信支付
+     </view>
+     <!-- v3设备提示临时充电结束 -->
+    </view>
+  </charge-popup>
+  <charge-popup chargeInfoShow="{{chargeInfoShow}}" >
+    <charge-info code="{{code}}" areaname="{{result.areaname}}" chargeInfo="{{result.chargeInfo}}" />
+  </charge-popup>
+
+ <!-- 弹框 -- 关闭小程序 -->
+  <close-minipro ref="handleGetCloseMini" >
+    {{ tipMessage }}
+  </close-minipro>
+</view>

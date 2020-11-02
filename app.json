@@ -5,6 +5,8 @@
     "pages/wallet/wallet",
     "pages/changepage/chargeport/chargeport",
     "pages/changepage/chargebyport/chargebyport",
+    "pages/changepage/chargeportv3/chargeportv3",
+    "pages/changepage/chargebyportv3/chargebyportv3",
     "pages/loading/loading",
     "pages/changepage/chargeicon/chargeicon",
     "pages/rechargepage/rechargeoffline/rechargeoffline",
@@ -24,7 +26,7 @@
   "window": {
     "defaultTitle": "自助充电平台",
     "pullRefresh": false,
-    "allowsBounceVertical": "NO"
+    "allowsBounceVertical": "No"
   },
   "tabBar": {
     "textColor": "#A2A3A5",

@@ -4,7 +4,8 @@ App({
   globalData: {
      userid: '', //用户id
      query: null , //扫码获取传递过来的参数
-     BASE_URL: 'http://www.he360', //扫码二维码基础路径
+     BASE_URL: 'http://www.he360', //正式扫码二维码基础路径
+    //  BASE_URL: 'http://www.tengfuchong.com', //测试扫码二维码基础路径
   },
   onLaunch(options) {
     this.handleUpdate()
