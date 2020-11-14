@@ -44,7 +44,11 @@
      <!-- 支付方式 -->
       <charge-paytype ifwallet="{{result.ifwallet}}" paytype="{{paytype}}" />
      <!-- 温馨提示 -->
-      <!-- <charge-tip /> -->
+       <!-- 设备提示临时充电开始 -->
+      <view class="contral-tip">
+        <text class="contral-tip-strong">注：</text> 支付宝充电不支持部分退费，如需部分退费，请使用微信支付
+      </view>
+     <!-- 设备提示临时充电结束 -->
     </view>
   </charge-popup>
   <charge-popup chargeInfoShow="{{chargeInfoShow}}" >

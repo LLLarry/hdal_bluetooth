@@ -16,6 +16,13 @@
   <view class="padding-3">
     <button type="primary" onTap="handleSubmit" class="text-size-default">开始充电</button>
   </view>
+
+  <!-- 设备提示临时充电开始 -->
+  <view class="contral-tip padding-x-3">
+    <text class="contral-tip-strong">注：</text> 支付宝充电不支持部分退费，如需部分退费，请使用微信支付
+  </view>
+  <!-- 设备提示临时充电结束 -->
+
   <view class="padding-3">
     <charge-phone phone="{{phonenum}}"/>
   </view>
